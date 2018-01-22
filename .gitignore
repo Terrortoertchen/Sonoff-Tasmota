@@ -5,3 +5,5 @@
 .vscode
 sonoff/user_config_override.h
 lib/readme.txt
+.vscode/c_cpp_properties.json
+.vscode/launch.json
