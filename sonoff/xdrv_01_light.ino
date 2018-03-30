@@ -55,10 +55,12 @@
 
 enum LightCommands {
   CMND_COLOR, CMND_COLORTEMPERATURE, CMND_DIMMER, CMND_LED, CMND_LEDTABLE, CMND_FADE,
-  CMND_PIXELS, CMND_SCHEME, CMND_SPEED, CMND_WAKEUP, CMND_WAKEUPDURATION, CMND_WIDTH, CMND_UNDOCA };
+  CMND_PIXELS, CMND_ROTATION, CMND_SCHEME, CMND_SPEED, CMND_WAKEUP, CMND_WAKEUPDURATION,
+  CMND_WIDTH, CMND_CHANNEL, CMND_HSBCOLOR, CMND_UNDOCA };
 const char kLightCommands[] PROGMEM =
   D_CMND_COLOR "|" D_CMND_COLORTEMPERATURE "|" D_CMND_DIMMER "|" D_CMND_LED "|" D_CMND_LEDTABLE "|" D_CMND_FADE "|"
-  D_CMND_PIXELS "|" D_CMND_SCHEME "|" D_CMND_SPEED "|" D_CMND_WAKEUP "|" D_CMND_WAKEUPDURATION "|" D_CMND_WIDTH "|UNDOCA" ;
+  D_CMND_PIXELS "|" D_CMND_ROTATION "|" D_CMND_SCHEME "|" D_CMND_SPEED "|" D_CMND_WAKEUP "|" D_CMND_WAKEUPDURATION "|"
+  D_CMND_WIDTH "|" D_CMND_CHANNEL "|" D_CMND_HSBCOLOR "|UNDOCA" ;
 
 struct LRgbColor {
   uint8_t R, G, B;
@@ -99,6 +101,7 @@ uint8_t light_signal_color[5];
 
 uint8_t light_wheel = 0;
 uint8_t light_subtype = 0;
+uint8_t light_device = 0;
 uint8_t light_power = 0;
 uint8_t light_update = 1;
 uint8_t light_wakeup_active = 0;
@@ -107,7 +110,7 @@ uint16_t light_wakeup_counter = 0;
 
 uint8_t light_fixed_color_index = 1;
 
-unsigned long strip_timer_counter = 0;  // Bars and Gradient
+unsigned long strip_timer_counter = 0;    // Bars and Gradient
 
 #ifdef USE_ARILUX_RF
 /*********************************************************************************************\
@@ -132,9 +135,12 @@ unsigned int arilux_rf_repeat_count = 0;
 
 uint8_t arilux_rf_toggle = 0;
 
+
+#ifndef ARDUINO_ESP8266_RELEASE_2_3_0
 #ifndef USE_WS2812_DMA  // Collides with Neopixelbus but solves RF misses
-//void AriluxRfInterrupt() ICACHE_RAM_ATTR;  // As iram is tight and it works this way too
+void AriluxRfInterrupt() ICACHE_RAM_ATTR;  // As iram is tight and it works this way too
 #endif  // USE_WS2812_DMA
+#endif  // ARDUINO_ESP8266_RELEASE_2_3_0
 
 void AriluxRfInterrupt()
 {
@@ -188,7 +194,7 @@ void AriluxRfHandler()
     AddLog(LOG_LEVEL_DEBUG);
 
     if (hostcode == stored_hostcode) {
-      char command[16];
+      char command[33];
       char value = '-';
       command[0] = '\0';
       uint8_t  keycode = arilux_rf_received_value & 0xFF;
@@ -248,8 +254,8 @@ void AriluxRfInit()
 void AriluxRfDisable()
 {
   if ((pin[GPIO_ARIRFRCV] < 99) && (pin[GPIO_LED2] < 99)) {
-    digitalWrite(pin[GPIO_LED2], bitRead(led_inverted, 1));  // Turn off RF
     detachInterrupt(pin[GPIO_ARIRFRCV]);
+    digitalWrite(pin[GPIO_LED2], bitRead(led_inverted, 1));  // Turn off RF
   }
 }
 #endif  // USE_ARILUX_RF
@@ -337,6 +343,7 @@ void LightInit()
 {
   uint8_t max_scheme = LS_MAX -1;
 
+  light_device = devices_present;
   light_subtype = light_type &7;
 
   if (light_type < LT_PWM6) {           // PWM
@@ -364,18 +371,14 @@ void LightInit()
       }
     }
     if (pin[GPIO_ARIRFRCV] < 99) {
-#ifdef USE_ARILUX_RF
-      AriluxRfInit();
-#else
       if (pin[GPIO_LED2] < 99) {
         digitalWrite(pin[GPIO_LED2], bitRead(led_inverted, 1));  // Turn off RF
       }
-#endif  // USE_ARILUX_RF
     }
   }
 #ifdef USE_WS2812  // ************************************************************************
   else if (LT_WS2812 == light_type) {
-#if (USE_WS2812_CTYPE > 1)
+#if (USE_WS2812_CTYPE > NEO_3LED)
     light_subtype++;  // from RGB to RGBW
 #endif
     Ws2812Init();
@@ -526,33 +529,73 @@ char* LightGetColor(uint8_t type, char* scolor)
 void LightPowerOn()
 {
   if (Settings.light_dimmer && !(light_power)) {
-    ExecuteCommandPower(devices_present, 1);
+    ExecuteCommandPower(light_device, POWER_ON);
+  }
+}
+
+void LightState(uint8_t append)
+{
+  char scolor[25];
+  char scommand[33];
+  float hsb[3];
+  int16_t h,s,b;
+
+  if (append) {
+    snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s,"), mqtt_data);
+  } else {
+    snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("{"));
+  }
+  GetPowerDevice(scommand, light_device, sizeof(scommand));
+  snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s\"%s\":\"%s\",\"" D_CMND_DIMMER "\":%d"),
+    mqtt_data, scommand, GetStateText(light_power), Settings.light_dimmer);
+  if (light_subtype > LST_SINGLE) {
+    snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s,\"" D_CMND_COLOR "\":\"%s\""), mqtt_data, LightGetColor(0, scolor));
+    //  Add status for HSB
+    LightGetHsb(&hsb[0],&hsb[1],&hsb[2]);
+    //  Scale these percentages up to the numbers expected byt he client
+    h = round(hsb[0] * 360);
+    s = round(hsb[1] * 100);
+    b = round(hsb[2] * 100);
+    snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s,\"" D_CMND_HSBCOLOR "\":\"%d,%d,%d\""), mqtt_data, h,s,b);
+    // Add status for each channel
+    snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s,\"" D_CMND_CHANNEL "\":[" ), mqtt_data);
+    for (byte i = 0; i < light_subtype; i++) {
+      snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s%s%d" ), mqtt_data, (i > 0 ? "," : ""), round(light_current_color[i]/2.55));
+    }
+    snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s]" ), mqtt_data);
+  }
+  if ((LST_COLDWARM == light_subtype) || (LST_RGBWC == light_subtype)) {
+    snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s,\"" D_CMND_COLORTEMPERATURE "\":%d"), mqtt_data, LightGetColorTemp());
+  }
+  if (append) {
+    if (light_subtype >= LST_RGB) {
+      snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s,\"" D_CMND_SCHEME "\":%d"), mqtt_data, Settings.light_scheme);
+    }
+    if (LT_WS2812 == light_type) {
+      snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s,\"" D_CMND_WIDTH "\":%d"), mqtt_data, Settings.light_width);
+    }
+    snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s,\"" D_CMND_FADE "\":\"%s\",\"" D_CMND_SPEED "\":%d,\"" D_CMND_LEDTABLE "\":\"%s\""),
+      mqtt_data, GetStateText(Settings.light_fade), Settings.light_speed, GetStateText(Settings.light_correction));
+  } else {
+    snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s}"), mqtt_data);
   }
 }
 
 void LightPreparePower()
 {
-  char scolor[25];
-  char scommand[16];
-
   if (Settings.light_dimmer && !(light_power)) {
-    ExecuteCommandPower(devices_present, 7);  // No publishPowerState
+    if (!Settings.flag.not_power_linked) {
+      ExecuteCommandPower(light_device, POWER_ON_NO_STATE);
+    }
   }
   else if (!Settings.light_dimmer && light_power) {
-    ExecuteCommandPower(devices_present, 6);  // No publishPowerState
+    ExecuteCommandPower(light_device, POWER_OFF_NO_STATE);
   }
 #ifdef USE_DOMOTICZ
-  DomoticzUpdatePowerState(devices_present);
+  DomoticzUpdatePowerState(light_device);
 #endif  // USE_DOMOTICZ
 
-  GetPowerDevice(scommand, devices_present, sizeof(scommand));
-  if (light_subtype > LST_SINGLE) {
-    snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("{\"%s\":\"%s\",\"" D_CMND_DIMMER "\":%d,\"" D_CMND_COLOR "\":\"%s\"}"),
-      scommand, GetStateText(light_power), Settings.light_dimmer, LightGetColor(0, scolor));
-  } else {
-    snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("{\"%s\":\"%s\",\"" D_CMND_DIMMER "\":%d}"),
-      scommand, GetStateText(light_power), Settings.light_dimmer);
-  }
+  LightState(0);
 }
 
 void LightFade()
@@ -636,7 +679,8 @@ void LightRandomColor()
 
 void LightSetPower()
 {
-  light_power = XdrvMailbox.index;
+//  light_power = XdrvMailbox.index;
+  light_power = bitRead(XdrvMailbox.index, light_device -1);
   if (light_wakeup_active) {
     light_wakeup_active--;
   }
@@ -649,7 +693,7 @@ void LightSetPower()
 void LightAnimate()
 {
   uint8_t cur_col[5];
-  uint16_t light_still_on;
+  uint16_t light_still_on = 0;
 
   strip_timer_counter++;
   if (!light_power) {                   // Power Off
@@ -701,7 +745,7 @@ void LightAnimate()
             }
           } else {
             snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("{\"" D_CMND_WAKEUP "\":\"" D_JSON_DONE "\"}"));
-            MqttPublishPrefixTopic_P(2, PSTR(D_CMND_WAKEUP));
+            MqttPublishPrefixTopic_P(TELE, PSTR(D_CMND_WAKEUP));
             light_wakeup_active = 0;
             Settings.light_scheme = LS_POWER;
           }
@@ -865,21 +909,6 @@ void LightHsbToRgb()
 
 /********************************************************************************************/
 
-void LightReplaceHsb(String *response)
-{
-  if (light_subtype > LST_COLDWARM) {
-    LightRgbToHsb();
-    response->replace("{h}", String((uint16_t)(65535.0f * light_hue)));
-    response->replace("{s}", String((uint8_t)(254.0f * light_saturation)));
-    response->replace("{b}", String((uint8_t)(254.0f * light_brightness)));
-  } else {
-    response->replace("{h}", "0");
-    response->replace("{s}", "0");
-//    response->replace("{b}", String((uint8_t)(2.54f * (float)Settings.light_dimmer)));
-    response->replace("{b}", String((uint8_t)(0.01f * (float)Settings.light_dimmer)));
-  }
-}
-
 void LightGetHsb(float *hue, float *sat, float *bri)
 {
   if (light_subtype > LST_COLDWARM) {
@@ -908,7 +937,7 @@ void LightSetHsb(float hue, float sat, float bri, uint16_t ct)
       LightSetColor();
     }
     LightPreparePower();
-    MqttPublishPrefixTopic_P(5, PSTR(D_CMND_COLOR));
+    MqttPublishPrefixTopic_P(RESULT_OR_STAT, PSTR(D_CMND_COLOR));
   } else {
     uint8_t tmp = (uint8_t)(bri * 100);
     Settings.light_dimmer = tmp;
@@ -917,10 +946,10 @@ void LightSetHsb(float hue, float sat, float bri, uint16_t ct)
         LightSetColorTemp(ct);
       }
       LightPreparePower();
-      MqttPublishPrefixTopic_P(5, PSTR(D_CMND_COLOR));
+      MqttPublishPrefixTopic_P(RESULT_OR_STAT, PSTR(D_CMND_COLOR));
     } else {
       LightPreparePower();
-      MqttPublishPrefixTopic_P(5, PSTR(D_CMND_DIMMER));
+      MqttPublishPrefixTopic_P(RESULT_OR_STAT, PSTR(D_CMND_DIMMER));
     }
   }
 }
@@ -962,10 +991,10 @@ boolean LightColorEntry(char *buffer, uint8_t buffer_length)
         light_entry_color[i++] = atoi(str);
       }
     }
-    entry_type = (light_subtype == i) ? 2 : 0;      // Decimal
+    entry_type = 2;                                 // Decimal
   }
-  else if ((2 * light_subtype) == buffer_length) {  // Hexadecimal entry
-    for (byte i = 0; i < light_subtype; i++) {
+  else if (((2 * light_subtype) == buffer_length) || (buffer_length > 3)) {  // Hexadecimal entry
+    for (byte i = 0; i < buffer_length / 2; i++) {
       strlcpy(scolor, buffer + (i *2), 3);
       light_entry_color[i] = (uint8_t)strtol(scolor, &p, 16);
     }
@@ -1005,7 +1034,7 @@ boolean LightCommand()
   char option = (1 == XdrvMailbox.data_len) ? XdrvMailbox.data[0] : '\0';
 
   int command_code = GetCommandCode(command, sizeof(command), XdrvMailbox.topic, kLightCommands);
-  if ((CMND_COLOR == command_code) && (light_subtype > LST_SINGLE) && (XdrvMailbox.index > 0) && (XdrvMailbox.index <= 5)) {
+  if ((CMND_COLOR == command_code) && (light_subtype > LST_SINGLE) && (XdrvMailbox.index > 0) && (XdrvMailbox.index <= 6)) {
     if (XdrvMailbox.data_len > 0) {
       valid_entry = LightColorEntry(XdrvMailbox.data, XdrvMailbox.data_len);
       if (valid_entry) {
@@ -1018,7 +1047,7 @@ boolean LightCommand()
           }
           Settings.light_scheme = 0;
           coldim = true;
-        } else {             // Color3, 4 and 5
+        } else {             // Color3, 4, 5 and 6
           for (byte i = 0; i < LST_RGB; i++) {
             Settings.ws_color[XdrvMailbox.index -3][i] = light_entry_color[i];
           }
@@ -1040,11 +1069,60 @@ boolean LightCommand()
       snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_INDEX_SVALUE, command, XdrvMailbox.index, scolor);
     }
   }
+  else if ((CMND_CHANNEL == command_code) && (XdrvMailbox.index > 0) && (XdrvMailbox.index <= light_subtype ) ) {
+    //  Set "Channel" directly - this allows Color and Direct PWM control to coexist
+    if ((XdrvMailbox.payload >= 0) && (XdrvMailbox.payload <= 100)) {
+      uint8_t level = XdrvMailbox.payload;
+      light_current_color[XdrvMailbox.index-1] = round(level * 2.55);
+      LightSetColor();
+      coldim = true;
+    }
+    snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_INDEX_NVALUE, command, XdrvMailbox.index, round(light_current_color[XdrvMailbox.index -1] / 2.55));
+  }
+  else if ((CMND_HSBCOLOR == command_code) && ( light_subtype >= LST_RGB)) {
+    //  Implement method to "direct set" color by HSB (HSB is passed comma separated, 0<H<360 0<S<100 0<B<100 )
+    uint16_t HSB[3];
+    bool validHSB = true;
+
+    for (int i = 0; i < 3; i++) {
+      char *substr;
+
+      if (0 == i) {
+        substr = strtok(XdrvMailbox.data, ",");
+      } else {
+        substr = strtok(NULL, ",");
+      }
+      if (substr != NULL) {
+        HSB[i] = atoi(substr);
+      } else {
+        validHSB = false;
+      }
+    }
+    if (validHSB) {
+      //  Translate to fractional elements as required by LightHsbToRgb
+      //  Keep the results <=1 in the event someone passes something
+      //  out of range.
+      LightSetHsb(( (HSB[0]>360) ? (HSB[0] % 360) : HSB[0] ) /360.0,
+                  ( (HSB[1]>100) ? (HSB[1] % 100) : HSB[1] ) /100.0,
+                  ( (HSB[2]>100) ? (HSB[2] % 100) : HSB[2] ) /100.0,
+                  0);
+    } else {
+      LightState(0);
+    }
+  }
 #ifdef USE_WS2812  //  ***********************************************************************
   else if ((CMND_LED == command_code) && (LT_WS2812 == light_type) && (XdrvMailbox.index > 0) && (XdrvMailbox.index <= Settings.light_pixels)) {
     if (XdrvMailbox.data_len > 0) {
-      if (LightColorEntry(XdrvMailbox.data, XdrvMailbox.data_len)) {
-        Ws2812SetColor(XdrvMailbox.index, light_entry_color[0], light_entry_color[1], light_entry_color[2], light_entry_color[3]);
+      char *p;
+      uint16_t idx = XdrvMailbox.index;
+      for (char *color = strtok_r(XdrvMailbox.data, " ", &p); color; color = strtok_r(NULL, " ", &p)) {
+        if (LightColorEntry(color, strlen(color))) {
+          Ws2812SetColor(idx, light_entry_color[0], light_entry_color[1], light_entry_color[2], light_entry_color[3]);
+          idx++;
+          if (idx >= Settings.light_pixels) break;
+        } else {
+          break;
+        }
       }
     }
     snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_INDEX_SVALUE, command, XdrvMailbox.index, Ws2812GetColor(XdrvMailbox.index, scolor));
@@ -1052,10 +1130,17 @@ boolean LightCommand()
   else if ((CMND_PIXELS == command_code) && (LT_WS2812 == light_type)) {
     if ((XdrvMailbox.payload > 0) && (XdrvMailbox.payload <= WS2812_MAX_LEDS)) {
       Settings.light_pixels = XdrvMailbox.payload;
+      Settings.light_rotation = 0;
       Ws2812Clear();
       light_update = 1;
     }
     snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_NVALUE, command, Settings.light_pixels);
+  }
+  else if ((CMND_ROTATION == command_code) && (LT_WS2812 == light_type)) {
+    if ((XdrvMailbox.payload >= 0) && (XdrvMailbox.payload < Settings.light_pixels)) {
+      Settings.light_rotation = XdrvMailbox.payload;
+    }
+    snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_NVALUE, command, Settings.light_rotation);
   }
   else if ((CMND_WIDTH == command_code) && (LT_WS2812 == light_type) && (XdrvMailbox.index > 0) && (XdrvMailbox.index <= 4)) {
     if (1 == XdrvMailbox.index) {
@@ -1181,7 +1266,7 @@ boolean LightCommand()
     scolor[6] = '\0';  // RGB only
     snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("%s,%d,%d,%d,%d,%d"),
       scolor, Settings.light_fade, Settings.light_correction, Settings.light_scheme, Settings.light_speed, Settings.light_width);
-    MqttPublishPrefixTopic_P(1, XdrvMailbox.topic);
+    MqttPublishPrefixTopic_P(STAT, XdrvMailbox.topic);
     mqtt_data[0] = '\0';
   }
   else {
@@ -1211,11 +1296,14 @@ boolean Xdrv01(byte function)
       case FUNC_EVERY_50_MSECOND:
         LightAnimate();
 #ifdef USE_ARILUX_RF
-        if (pin[GPIO_ARIRFRCV] < 99) {
-          AriluxRfHandler();
-        }
+        if (pin[GPIO_ARIRFRCV] < 99) AriluxRfHandler();
 #endif  // USE_ARILUX_RF
         break;
+#ifdef USE_ARILUX_RF
+      case FUNC_EVERY_SECOND:
+        if (10 == uptime) AriluxRfInit();  // Needs rest before enabling RF interrupts
+        break;
+#endif  // USE_ARILUX_RF
       case FUNC_COMMAND:
         result = LightCommand();
         break;

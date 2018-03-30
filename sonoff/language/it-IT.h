@@ -28,7 +28,13 @@
  * Use online command StateText to translate ON, OFF, HOLD and TOGGLE.
  * Use online command Prefix to translate cmnd, stat and tele.
  *
+ * Updated until v5.12.0
 \*********************************************************************/
+
+#define LANGUAGE_MODULE_NAME         // Enable to display "Module Generic" (ie Spanish), Disable to display "Generic Module" (ie English)
+
+// HTML (ISO 639-1) Language Code
+#define D_HTML_LANGUAGE "it"
 
 // "2017-03-07T11:08:02" - ISO8601:2004
 #define D_YEAR_MONTH_SEPARATOR "-"
@@ -51,7 +57,7 @@
 #define D_AUTO "AUTO"
 #define D_BLINK "Blink"
 #define D_BLINKOFF "BlinkOff"
-#define D_BOOT_COUNT "Boot Count"
+#define D_BOOT_COUNT "Numero di boot"
 #define D_BRIGHTLIGHT "Luminoso"
 #define D_BUTTON "Pulsante"
 #define D_BY "da"                    // Written by me
@@ -60,7 +66,7 @@
 #define D_CO2 "CO2"
 #define D_CODE "codice"                // Button code
 #define D_COLDLIGHT "Fredda"
-#define D_COMMAND "Command"
+#define D_COMMAND "Comando"
 #define D_CONNECTED "Connesso"
 #define D_COUNT "Conteggio"
 #define D_COUNTER "Contatore"
@@ -69,35 +75,37 @@
 #define D_DARKLIGHT "Scuro"
 #define D_DEBUG "Debug"
 #define D_DISABLED "Disabilitato"
+#define D_DISTANCE "Distance"
 #define D_DNS_SERVER "DNS Server"
 #define D_DONE "Fatto"
 #define D_DST_TIME "DST"
+#define D_ECO2 "eCO2"
 #define D_EMULATION "Emulazione"
 #define D_ENABLED "Abilitato"
-#define D_ERASE "Erase"
-#define D_ERROR "Error"
+#define D_ERASE "Cancellare"
+#define D_ERROR "Errore"
 #define D_FAHRENHEIT "Fahrenheit"
 #define D_FAILED "Fallito"
-#define D_FALLBACK "Fallback"
+#define D_FALLBACK "Riserva"
 #define D_FALLBACK_TOPIC "Topic Riserva"
-#define D_FALSE "False"
+#define D_FALSE "Falso"
 #define D_FILE "File"
 #define D_FREE_MEMORY "Memoria Libera"
 #define D_GAS "Gas"
 #define D_GATEWAY "Gateway"
 #define D_GROUP "Gruppo"
 #define D_HOST "Host"
-#define D_HOSTNAME "Hostname"
+#define D_HOSTNAME "Nome Host"
 #define D_HUMIDITY "Umidita'"
 #define D_ILLUMINANCE "Illuminazione"
 #define D_IMMEDIATE "immediato"      // Button immediate
-#define D_INDEX "Index"
+#define D_INDEX "Indice"
 #define D_INFO "Info"
 #define D_INITIALIZED "Inizializzato"
 #define D_IP_ADDRESS "Indirizzo IP"
 #define D_LIGHT "Luce"
 #define D_LWT "LWT"
-#define D_MODULE "Module"
+#define D_MODULE "Modulo"
 #define D_MQTT "MQTT"
 #define D_MULTI_PRESS "multi-pressione"
 #define D_NOISE "Rumore"
@@ -115,13 +123,14 @@
 #define D_PRESSUREATSEALEVEL "Pressione al livello del mare"
 #define D_PROGRAM_FLASH_SIZE "Dimensione Flash Programma"
 #define D_PROGRAM_SIZE "Dimensione Programma"
-#define D_PROJECT "Project"
+#define D_PROJECT "Progetto"
 #define D_RECEIVED "Ricevuto"
 #define D_RESTART "Riavvio"
-#define D_RESTARTING "Restarting"
+#define D_RESTARTING "Riavviando"
 #define D_RESTART_REASON "Causa Riavvio"
 #define D_RESTORE "ripristino"
 #define D_RETAINED "salvato"
+#define D_RULE "Rule"
 #define D_SAVE "Salva"
 #define D_SENSOR "Sensore"
 #define D_SSID "SSId"
@@ -130,25 +139,29 @@
 #define D_STOP "Stop"
 #define D_SUBNET_MASK "Maschera sottorete"
 #define D_SUBSCRIBE_TO "Sottoscrivi a"
-#define D_SUCCESSFUL "Successful"
-#define D_TEMPERATURE "Temperature"
+#define D_SUCCESSFUL "Riuscito"
+#define D_SUNRISE "Sunrise"
+#define D_SUNSET "Sunset"
+#define D_TEMPERATURE "Temperatura"
 #define D_TO "a"
 #define D_TOGGLE "Toggle"
 #define D_TOPIC "Topic"
 #define D_TRANSMIT "Trasmesso"
 #define D_TRUE "True"
+#define D_TVOC "TVOC"
 #define D_UPGRADE "aggiornamento"
 #define D_UPLOAD "Invio"
 #define D_UPTIME "Uptime"
 #define D_USER "Utente"
 #define D_UTC_TIME "UTC"
 #define D_UV_LEVEL "Livello UV"
-#define D_VERSION "Version"
+#define D_VERSION "Versione"
 #define D_VOLTAGE "Tensione"
 #define D_WARMLIGHT "Calda"
 #define D_WEB_SERVER "Web Server"
 
 // sonoff.ino
+#define D_WARNING_MINIMAL_VERSION "ATTENZIONE Questa versione non supporta il salvataggio delle impostazioni"
 #define D_LEVEL_10 "level 1-0"
 #define D_LEVEL_01 "level 0-1"
 #define D_SERIAL_LOGGING_DISABLED "Log seriale disabilitato"
@@ -158,13 +171,6 @@
 #define D_RECEIVED_TOPIC "Topic Ricevuto"
 #define D_DATA_SIZE "Dimensione Dati"
 #define D_ANALOG_INPUT "Ingresso Analogico"
-
-#define D_FINGERPRINT "Verifica TLS fingerprint..."
-#define D_TLS_CONNECT_FAILED_TO "Connessione TLS fallita a"
-#define D_RETRY_IN "Nuovo tentativo in"
-#define D_VERIFIED "Verificato"
-#define D_INSECURE "Connessione insicura a causa di Fingerprint non valido"
-#define D_CONNECT_FAILED_TO "Connessione Fallita a"
 
 // support.ino
 #define D_OSWATCH "osWatch"
@@ -314,6 +320,14 @@
 #define D_ENABLE_WEBLOG_FOR_RESPONSE "Abilitare weblog 2 se e' attesa una risposta"
 #define D_NEED_USER_AND_PASSWORD "Richiesto user=<username>&password=<password>"
 
+// xdrv_00_mqtt.ino
+#define D_FINGERPRINT "Verifica TLS fingerprint..."
+#define D_TLS_CONNECT_FAILED_TO "Connessione TLS fallita a"
+#define D_RETRY_IN "Nuovo tentativo in"
+#define D_VERIFIED "Verificato Fingerprint"
+#define D_INSECURE "Connessione insicura a causa di Fingerprint non valido"
+#define D_CONNECT_FAILED_TO "Connessione Fallita a"
+
 // xdrv_wemohue.ino
 #define D_MULTICAST_DISABLED "Multicast disabilitato"
 #define D_MULTICAST_REJOINED "Multicast (ri)associato"
@@ -334,19 +348,6 @@
 #define D_HUE_POST_ARGS "Hue POST argomenti"
 #define D_3_RESPONSE_PACKETS_SENT "3 pacchetti di risposta inviati"
 
-// xdrv_02_irremote.ino
-#define D_JSON_INVALID_JSON "JSON non valido"
-#define D_JSON_PROTOCOL_NOT_SUPPORTED "Protocollo non supportato"
-#define D_JSON_IR_PROTOCOL "PROTOCOL"
-#define D_JSON_IR_BITS "BITS"
-#define D_JSON_IR_DATA "DATA"
-#define D_JSON_IRHVAC_VENDOR "VENDOR"
-#define D_JSON_IRHVAC_POWER "POWER"
-#define D_JSON_IRHVAC_MODE "MODE"
-#define D_JSON_IRHVAC_FANSPEED "FANSPEED"
-#define D_JSON_IRHVAC_TEMP "TEMP"
-#define D_JSON_IRRECEIVED "IrReceived"
-
 // xdrv_05_domoticz.ino
 #define D_DOMOTICZ_PARAMETERS "Parametri Domoticz"
 #define D_DOMOTICZ_IDX "Idx"
@@ -358,13 +359,43 @@
   #define D_DOMOTICZ_TEMP_HUM_BARO "Temp,Hum,Baro"
   #define D_DOMOTICZ_POWER_ENERGY "Power,Energy"
   #define D_DOMOTICZ_ILLUMINANCE "Illuminance"
-  #define D_DOMOTICZ_COUNT "Count"
-  #define D_DOMOTICZ_VOLTAGE "Voltage"
-  #define D_DOMOTICZ_CURRENT "Current"
+  #define D_DOMOTICZ_COUNT "Count/PM1"
+  #define D_DOMOTICZ_VOLTAGE "Voltage/PM2.5"
+  #define D_DOMOTICZ_CURRENT "Current/PM10"
   #define D_DOMOTICZ_AIRQUALITY "AirQuality"
 #define D_DOMOTICZ_UPDATE_TIMER "Intervallo di aggiornamento"
 
-// xsns_03_energy.ino
+// xdrv_09_timers.ino
+#define D_CONFIGURE_TIMER "Configure Timer"
+#define D_TIMER_PARAMETERS "Timer parameters"
+#define D_TIMER_ARM "Arm"
+#define D_TIMER_TIME "Time"
+#define D_TIMER_DAYS "Days"
+#define D_TIMER_REPEAT "Repeat"
+#define D_TIMER_OUTPUT "Output"
+#define D_TIMER_ACTION "Action"
+
+// xdrv_10_knx.ino
+#define D_CONFIGURE_KNX "Configure KNX"
+#define D_KNX_PARAMETERS "KNX Parameters"
+#define D_KNX_GENERAL_CONFIG "General"
+#define D_KNX_PHYSICAL_ADDRESS "Physical Address"
+#define D_KNX_PHYSICAL_ADDRESS_NOTE "( Must be unique on the KNX network )"
+#define D_KNX_ENABLE "Enable KNX"
+#define D_KNX_GROUP_ADDRESS_TO_WRITE "Data to Send to Group Addresses"
+#define D_ADD "Add"
+#define D_DELETE "Delete"
+#define D_REPLY "Reply"
+#define D_KNX_GROUP_ADDRESS_TO_READ "Group Addresses to Receive Data from"
+#define D_LOG_KNX "KNX: "
+#define D_RECEIVED_FROM "Received from"
+#define D_KNX_COMMAND_WRITE "Write"
+#define D_KNX_COMMAND_READ "Read"
+#define D_KNX_COMMAND_OTHER "Other"
+#define D_SENT_TO "sent to"
+#define D_KNX_WARNING "The group address ( 0 / 0 / 0 ) is reserved and can not be used."
+
+// xdrv_03_energy.ino
 #define D_ENERGY_TODAY "Energia Oggi"
 #define D_ENERGY_YESTERDAY "Energia Ieri"
 #define D_ENERGY_TOTAL "Energia Totale"
@@ -385,8 +416,12 @@
 #define D_SENSOR_DID_NOT_ACK_COMMAND "Sensore non ha eseguito il comando ACK"
 #define D_SHT1X_FOUND "SHT1X trovato"
 
+// xsns_18_pms5003.ino
+#define D_STANDARD_CONCENTRATION "CF-1 PM"     // Standard Particle CF-1 Particle Matter
+#define D_ENVIRONMENTAL_CONCENTRATION "PM"     // Environmetal Particle Matter
+#define D_PARTICALS_BEYOND "Particelle"
+
 // sonoff_template.h
-// Max string length is 8 characters including suffixes
 #define D_SENSOR_NONE     "None"
 #define D_SENSOR_DHT11    "DHT11"
 #define D_SENSOR_AM2301   "AM2301"
@@ -412,18 +447,29 @@
 #define D_SENSOR_SPI_CS   "SPI CS"
 #define D_SENSOR_SPI_DC   "SPI DC"
 #define D_SENSOR_BACKLIGHT "BkLight"
+#define D_SENSOR_PMS5003  "PMS5003"
+#define D_SENSOR_SDS0X1   "SDS0X1"
+#define D_SENSOR_SBR_RX   "SerBr Rx"
+#define D_SENSOR_SBR_TX   "SerBr Tx"
+#define D_SENSOR_SR04_TRIG "SR04 Tri"
+#define D_SENSOR_SR04_ECHO "SR04 Ech"
 
 // Units
 #define D_UNIT_AMPERE "A"
+#define D_UNIT_CENTIMETER "cm"
 #define D_UNIT_HOUR "Hr"
 #define D_UNIT_KILOOHM "kOhm"
 #define D_UNIT_KILOWATTHOUR "kWh"
 #define D_UNIT_LUX "lx"
+#define D_UNIT_MICROGRAM_PER_CUBIC_METER "ug/m3"
+#define D_UNIT_MICROMETER "um"
 #define D_UNIT_MICROSECOND "us"
 #define D_UNIT_MILLIAMPERE "mA"
 #define D_UNIT_MILLISECOND "ms"
 #define D_UNIT_MINUTE "Min"
-#define D_UNIT_PPM "ppm"
+#define D_UNIT_PARTS_PER_BILLION "ppb"
+#define D_UNIT_PARTS_PER_DECILITER "ppd"
+#define D_UNIT_PARTS_PER_MILLION "ppm"
 #define D_UNIT_PRESSURE "hPa"
 #define D_UNIT_SECOND "sec"
 #define D_UNIT_SECTORS "settori"

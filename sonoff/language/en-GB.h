@@ -28,7 +28,13 @@
  * Use online command StateText to translate ON, OFF, HOLD and TOGGLE.
  * Use online command Prefix to translate cmnd, stat and tele.
  *
+ * Updated until v5.12.0n
 \*********************************************************************/
+
+//#define LANGUAGE_MODULE_NAME         // Enable to display "Module Generic" (ie Spanish), Disable to display "Generic Module" (ie English)
+
+// HTML (ISO 639-1) Language Code
+#define D_HTML_LANGUAGE "en"
 
 // "2017-03-07T11:08:02" - ISO8601:2004
 #define D_YEAR_MONTH_SEPARATOR "-"
@@ -69,9 +75,11 @@
 #define D_DARKLIGHT "Dark"
 #define D_DEBUG "Debug"
 #define D_DISABLED "Disabled"
+#define D_DISTANCE "Distance"
 #define D_DNS_SERVER "DNS Server"
 #define D_DONE "Done"
 #define D_DST_TIME "DST"
+#define D_ECO2 "eCO2"
 #define D_EMULATION "Emulation"
 #define D_ENABLED "Enabled"
 #define D_ERASE "Erase"
@@ -122,6 +130,7 @@
 #define D_RESTART_REASON "Restart Reason"
 #define D_RESTORE "restore"
 #define D_RETAINED "retained"
+#define D_RULE "Rule"
 #define D_SAVE "Save"
 #define D_SENSOR "Sensor"
 #define D_SSID "SSId"
@@ -131,12 +140,15 @@
 #define D_SUBNET_MASK "Subnet Mask"
 #define D_SUBSCRIBE_TO "Subscribe to"
 #define D_SUCCESSFUL "Successful"
+#define D_SUNRISE "Sunrise"
+#define D_SUNSET "Sunset"
 #define D_TEMPERATURE "Temperature"
 #define D_TO "to"
 #define D_TOGGLE "Toggle"
 #define D_TOPIC "Topic"
 #define D_TRANSMIT "Transmit"
 #define D_TRUE "True"
+#define D_TVOC "TVOC"
 #define D_UPGRADE "upgrade"
 #define D_UPLOAD "Upload"
 #define D_UPTIME "Uptime"
@@ -149,6 +161,7 @@
 #define D_WEB_SERVER "Web Server"
 
 // sonoff.ino
+#define D_WARNING_MINIMAL_VERSION "WARNING This version does not support persistent settings"
 #define D_LEVEL_10 "level 1-0"
 #define D_LEVEL_01 "level 0-1"
 #define D_SERIAL_LOGGING_DISABLED "Serial logging disabled"
@@ -158,13 +171,6 @@
 #define D_RECEIVED_TOPIC "Received Topic"
 #define D_DATA_SIZE "Data Size"
 #define D_ANALOG_INPUT "Analog"
-
-#define D_FINGERPRINT "Verify TLS fingerprint..."
-#define D_TLS_CONNECT_FAILED_TO "TLS Connect failed to"
-#define D_RETRY_IN "Retry in"
-#define D_VERIFIED "Verified"
-#define D_INSECURE "Insecure connection due to invalid Fingerprint"
-#define D_CONNECT_FAILED_TO "Connect failed to"
 
 // support.ino
 #define D_OSWATCH "osWatch"
@@ -314,6 +320,14 @@
 #define D_ENABLE_WEBLOG_FOR_RESPONSE "Enable weblog 2 if response expected"
 #define D_NEED_USER_AND_PASSWORD "Need user=<username>&password=<password>"
 
+// xdrv_00_mqtt.ino
+#define D_FINGERPRINT "Verify TLS fingerprint..."
+#define D_TLS_CONNECT_FAILED_TO "TLS Connect failed to"
+#define D_RETRY_IN "Retry in"
+#define D_VERIFIED "Verified using Fingerprint"
+#define D_INSECURE "Insecure connection due to invalid Fingerprint"
+#define D_CONNECT_FAILED_TO "Connect failed to"
+
 // xdrv_wemohue.ino
 #define D_MULTICAST_DISABLED "Multicast disabled"
 #define D_MULTICAST_REJOINED "Multicast (re)joined"
@@ -334,19 +348,6 @@
 #define D_HUE_POST_ARGS "Hue POST args"
 #define D_3_RESPONSE_PACKETS_SENT "3 response packets sent"
 
-// xdrv_02_irremote.ino
-#define D_JSON_INVALID_JSON "Invalid JSON"
-#define D_JSON_PROTOCOL_NOT_SUPPORTED "Protocol not supported"
-#define D_JSON_IR_PROTOCOL "PROTOCOL"
-#define D_JSON_IR_BITS "BITS"
-#define D_JSON_IR_DATA "DATA"
-#define D_JSON_IRHVAC_VENDOR "VENDOR"
-#define D_JSON_IRHVAC_POWER "POWER"
-#define D_JSON_IRHVAC_MODE "MODE"
-#define D_JSON_IRHVAC_FANSPEED "FANSPEED"
-#define D_JSON_IRHVAC_TEMP "TEMP"
-#define D_JSON_IRRECEIVED "IrReceived"
-
 // xdrv_05_domoticz.ino
 #define D_DOMOTICZ_PARAMETERS "Domoticz parameters"
 #define D_DOMOTICZ_IDX "Idx"
@@ -358,13 +359,43 @@
   #define D_DOMOTICZ_TEMP_HUM_BARO "Temp,Hum,Baro"
   #define D_DOMOTICZ_POWER_ENERGY "Power,Energy"
   #define D_DOMOTICZ_ILLUMINANCE "Illuminance"
-  #define D_DOMOTICZ_COUNT "Count"
-  #define D_DOMOTICZ_VOLTAGE "Voltage"
-  #define D_DOMOTICZ_CURRENT "Current"
+  #define D_DOMOTICZ_COUNT "Count/PM1"
+  #define D_DOMOTICZ_VOLTAGE "Voltage/PM2.5"
+  #define D_DOMOTICZ_CURRENT "Current/PM10"
   #define D_DOMOTICZ_AIRQUALITY "AirQuality"
 #define D_DOMOTICZ_UPDATE_TIMER "Update timer"
 
-// xsns_03_energy.ino
+// xdrv_09_timers.ino
+#define D_CONFIGURE_TIMER "Configure Timer"
+#define D_TIMER_PARAMETERS "Timer parameters"
+#define D_TIMER_ARM "Arm"
+#define D_TIMER_TIME "Time"
+#define D_TIMER_DAYS "Days"
+#define D_TIMER_REPEAT "Repeat"
+#define D_TIMER_OUTPUT "Output"
+#define D_TIMER_ACTION "Action"
+
+// xdrv_10_knx.ino
+#define D_CONFIGURE_KNX "Configure KNX"
+#define D_KNX_PARAMETERS "KNX Parameters"
+#define D_KNX_GENERAL_CONFIG "General"
+#define D_KNX_PHYSICAL_ADDRESS "Physical Address"
+#define D_KNX_PHYSICAL_ADDRESS_NOTE "( Must be unique on the KNX network )"
+#define D_KNX_ENABLE "Enable KNX"
+#define D_KNX_GROUP_ADDRESS_TO_WRITE "Data to Send to Group Addresses"
+#define D_ADD "Add"
+#define D_DELETE "Delete"
+#define D_REPLY "Reply"
+#define D_KNX_GROUP_ADDRESS_TO_READ "Group Addresses to Receive Data from"
+#define D_LOG_KNX "KNX: "
+#define D_RECEIVED_FROM "Received from"
+#define D_KNX_COMMAND_WRITE "Write"
+#define D_KNX_COMMAND_READ "Read"
+#define D_KNX_COMMAND_OTHER "Other"
+#define D_SENT_TO "sent to"
+#define D_KNX_WARNING "The group address ( 0 / 0 / 0 ) is reserved and can not be used."
+
+// xdrv_03_energy.ino
 #define D_ENERGY_TODAY "Energy Today"
 #define D_ENERGY_YESTERDAY "Energy Yesterday"
 #define D_ENERGY_TOTAL "Energy Total"
@@ -385,8 +416,12 @@
 #define D_SENSOR_DID_NOT_ACK_COMMAND "Sensor did not ACK command"
 #define D_SHT1X_FOUND "SHT1X found"
 
+// xsns_18_pms5003.ino
+#define D_STANDARD_CONCENTRATION "CF-1 PM"     // Standard Particle CF-1 Particle Matter
+#define D_ENVIRONMENTAL_CONCENTRATION "PM"     // Environmetal Particle Matter
+#define D_PARTICALS_BEYOND "Particals"
+
 // sonoff_template.h
-// Max string length is 8 characters including suffixes
 #define D_SENSOR_NONE     "None"
 #define D_SENSOR_DHT11    "DHT11"
 #define D_SENSOR_AM2301   "AM2301"
@@ -412,18 +447,29 @@
 #define D_SENSOR_SPI_CS   "SPI CS"
 #define D_SENSOR_SPI_DC   "SPI DC"
 #define D_SENSOR_BACKLIGHT "BkLight"
+#define D_SENSOR_PMS5003  "PMS5003"
+#define D_SENSOR_SDS0X1   "SDS0X1"
+#define D_SENSOR_SBR_RX   "SerBr Rx"
+#define D_SENSOR_SBR_TX   "SerBr Tx"
+#define D_SENSOR_SR04_TRIG "SR04 Tri"
+#define D_SENSOR_SR04_ECHO "SR04 Ech"
 
 // Units
 #define D_UNIT_AMPERE "A"
+#define D_UNIT_CENTIMETER "cm"
 #define D_UNIT_HOUR "Hr"
 #define D_UNIT_KILOOHM "kOhm"
 #define D_UNIT_KILOWATTHOUR "kWh"
 #define D_UNIT_LUX "lx"
+#define D_UNIT_MICROGRAM_PER_CUBIC_METER "ug/m3"
+#define D_UNIT_MICROMETER "um"
 #define D_UNIT_MICROSECOND "us"
 #define D_UNIT_MILLIAMPERE "mA"
 #define D_UNIT_MILLISECOND "ms"
 #define D_UNIT_MINUTE "Min"
-#define D_UNIT_PPM "ppm"
+#define D_UNIT_PARTS_PER_BILLION "ppb"
+#define D_UNIT_PARTS_PER_DECILITER "ppd"
+#define D_UNIT_PARTS_PER_MILLION "ppm"
 #define D_UNIT_PRESSURE "hPa"
 #define D_UNIT_SECOND "sec"
 #define D_UNIT_SECTORS "sectors"
