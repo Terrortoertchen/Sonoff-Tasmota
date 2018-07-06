@@ -26,6 +26,7 @@
   ====================================================*/
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #define VERSION                0x06010001   // 6.1.0a
 =======
 <<<<<<< HEAD
@@ -34,6 +35,9 @@
 #define VERSION                0x06010001   // 6.1.0a
 >>>>>>> upstream/development
 >>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
+=======
+#define VERSION                0x06010001   // 6.1.0a
+>>>>>>> 2058b9f... Updated to v6.1.0a
 
 // Location specific includes
 #include <core_version.h>                   // Arduino_Esp8266 version information (ARDUINO_ESP8266_RELEASE and ARDUINO_ESP8266_RELEASE_2_3_0)
@@ -94,6 +98,14 @@
 #include "settings.h"
 
 #ifdef BE_MINIMAL
+<<<<<<< HEAD
+=======
+enum TasmotaCommands {
+  CMND_POWER, CMND_FANSPEED, CMND_STATUS, CMND_STATE, CMND_SLEEP, CMND_UPGRADE, CMND_UPLOAD, CMND_OTAURL, CMND_SERIALLOG, CMND_RESTART };
+const char kTasmotaCommands[] PROGMEM =
+  D_CMND_POWER "|" D_CMND_FANSPEED "|" D_CMND_STATUS "|" D_CMND_STATE "|" D_CMND_SLEEP "|" D_CMND_UPGRADE "|" D_CMND_UPLOAD "|" D_CMND_OTAURL "|" D_CMND_SERIALLOG "|" D_CMND_RESTART;
+#else
+>>>>>>> 2058b9f... Updated to v6.1.0a
 enum TasmotaCommands {
   CMND_POWER, CMND_FANSPEED, CMND_STATUS, CMND_STATE, CMND_SLEEP, CMND_UPGRADE, CMND_UPLOAD, CMND_OTAURL, CMND_SERIALLOG, CMND_RESTART };
 const char kTasmotaCommands[] PROGMEM =
@@ -653,7 +665,10 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
       MqttShowState();
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 2058b9f... Updated to v6.1.0a
     else if (CMND_SLEEP == command_code) {
       if ((payload >= 0) && (payload < 251)) {
         if ((!Settings.sleep && payload) || (Settings.sleep && !payload)) restart_flag = 2;
@@ -702,7 +717,10 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
       }
     }
 #ifndef BE_MINIMAL
+<<<<<<< HEAD
 >>>>>>> upstream/development
+=======
+>>>>>>> 2058b9f... Updated to v6.1.0a
     else if ((CMND_POWERONSTATE == command_code) && (Settings.module != MOTOR)) {
       /* 0 = Keep relays off after power on
        * 1 = Turn relays on after power on, if PulseTime set wait for PulseTime seconds, and turn relays off
@@ -1081,6 +1099,7 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
       snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_NVALUE, command, Settings.pulse_counter_debounce);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     else if (CMND_SLEEP == command_code) {
       if ((payload >= 0) && (payload < 251)) {
         if ((!Settings.sleep && payload) || (Settings.sleep && !payload)) restart_flag = 2;
@@ -1115,6 +1134,8 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
         strlcpy(Settings.ota_url, (1 == payload) ? OTA_URL : dataBuf, sizeof(Settings.ota_url));
       snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_SVALUE, command, Settings.ota_url);
     }
+=======
+>>>>>>> 2058b9f... Updated to v6.1.0a
     else if (CMND_BAUDRATE == command_code) {
       if (payload32 > 0) {
         payload32 /= 1200;  // Make it a valid baudrate
@@ -1172,6 +1193,7 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
       }
       snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_NVALUE, command, Settings.serial_delimiter);
     }
+<<<<<<< HEAD
     else if (CMND_SERIALLOG == command_code) {
       if ((payload >= LOG_LEVEL_NONE) && (payload <= LOG_LEVEL_ALL)) {
         Settings.flag.mqtt_serial = 0;
@@ -1181,6 +1203,8 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
       }
       snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_NVALUE, command, Settings.serial_delimiter);
     }
+=======
+>>>>>>> 2058b9f... Updated to v6.1.0a
     else if (CMND_SYSLOG == command_code) {
       if ((payload >= LOG_LEVEL_NONE) && (payload <= LOG_LEVEL_ALL)) {
         Settings.syslog_level = payload;
@@ -1333,6 +1357,7 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
       snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_NVALUE_UNIT, command, Settings.tele_period, (Settings.flag.value_units) ? " " D_UNIT_SECOND : "");
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     else if (CMND_RESTART == command_code) {
       switch (payload) {
       case 1:
@@ -1349,6 +1374,8 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
     }
 =======
 >>>>>>> upstream/development
+=======
+>>>>>>> 2058b9f... Updated to v6.1.0a
     else if (CMND_RESET == command_code) {
       switch (payload) {
       case 1:
@@ -1446,6 +1473,7 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
     }
 #endif  // USE_I2C
 <<<<<<< HEAD
+<<<<<<< HEAD
     else if (XdrvCommand(grpflg, type, index, dataBuf, data_len, payload, payload16)) {
       // Serviced
     }
@@ -1453,6 +1481,8 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
       type = NULL;
     }
 =======
+=======
+>>>>>>> 2058b9f... Updated to v6.1.0a
 #endif  // Not BE_MINIMAL
     else type = NULL;  // Unknown command
 >>>>>>> upstream/development
@@ -2559,9 +2589,13 @@ void SerialInput()
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 #ifdef USE_ENERGY_SENSOR
 >>>>>>> upstream/development
+=======
+#ifdef USE_ENERGY_SENSOR
+>>>>>>> 2058b9f... Updated to v6.1.0a
 /*-------------------------------------------------------------------------------------------*\
  * Sonoff S31 and Sonoff Pow R2 4800 baud serial interface
 \*-------------------------------------------------------------------------------------------*/
@@ -2573,10 +2607,14 @@ void SerialInput()
       }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 #endif  // USE_ENERGY_SENSOR
 >>>>>>> upstream/development
+=======
+#endif  // USE_ENERGY_SENSOR
+>>>>>>> 2058b9f... Updated to v6.1.0a
 /*-------------------------------------------------------------------------------------------*/
 
     if (serial_in_byte > 127) {                // binary data...

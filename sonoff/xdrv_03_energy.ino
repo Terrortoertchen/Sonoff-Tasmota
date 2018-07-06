@@ -91,11 +91,15 @@ void EnergyUpdateToday()
 }
 
 /*********************************************************************************************\
+<<<<<<< HEAD
 <<<<<<< HEAD:sonoff/xdrv_03_energy.ino
  * HLW8012 - Energy (Sonoff Pow)
 =======
  * HLW8012, BL0937 or HJL-01 - Energy (Sonoff Pow, HuaFan, KMC70011, BlitzWolf)
 >>>>>>> upstream/development:sonoff/xdrv_03_energy.ino
+=======
+ * HLW8012, BL0937 or HJL-01 - Energy (Sonoff Pow, HuaFan, KMC70011, BlitzWolf)
+>>>>>>> 2058b9f... Updated to v6.1.0a
  *
  * Based on Source: Shenzhen Heli Technology Co., Ltd
 \*********************************************************************************************/

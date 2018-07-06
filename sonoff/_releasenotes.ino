@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 /* 5.13.1 20180501
@@ -17,11 +18,17 @@
  * Remove TSL2561 debug message and update library (#2415)
  * Change SHT1x sensor initialization from pre-teleperiod to once during restart to fix I2C interference
  * Add wifi and mqtt status led blinkyblinky to be disabled by SetOption31 1. Does not work when LedPower is On (deliberate) (#871, #2230, #3114, #3155)
+=======
+/* 6.1.0a
+>>>>>>> 2058b9f... Updated to v6.1.0a
  * Add experimental (untested) TM1638 switch support (#2226)
  * Add support for APDS9960 proximity sensor (#3051)
  * Add heap and stack debug information
  * Add debug facilities using optional xdrv_99_debug.ino to enable in user_config.h
+<<<<<<< HEAD
  * Remove not needed functionality from Sonoff-minimal to save space
+=======
+>>>>>>> 2058b9f... Updated to v6.1.0a
  *
  * 6.1.0 20180706
  * Remove version 3, 4 and pre 5.2 settings auto-upgrade. See https://github.com/arendst/Sonoff-Tasmota/wiki/Upgrade#migration-path
@@ -32,6 +39,54 @@
  * Fix KNX bug when doing reply of sensors values
  * Fix rules induced LWT message
  * Fix possible wifi connection problem (#1366)
+<<<<<<< HEAD
+=======
+ * Add Ukrainian language file
+ * Add KNX support for DS18S20 Temperature sensor
+ * Add CRC to Settings making future upgrades more fail-safe
+ * Add command SetOption30 to enforce Hass discovery as light group (#1784)
+ * Add support for BlitzWolf BW-SHP2 (and Homecube, Gosund SP1) Energy Monitoring Smart Socket (#2223)
+ * Add time in minutes to rule Time#Initialized, Time#set and Time#Minute (#2669)
+ * Add rule variables %time% for minutes since midnight, %uptime%, %sunrise% and %sunset% giving time in minutes (#2669)
+ * Add support for Sonoff S26 Smart Socket (#2808)
+ * Add increment and decrement value to command Counter (#2838)
+ * Add support for Sonoff iFan02 as module 44 introducing command FanSpeed 0..3 (#2839)
+ * Add support for uploading Sonoff Bridge firmware found in tools/fw_efm8bb1 folder build by Portisch using Web Gui File Upload (#2886)
+ * Add command RfRaw to control Portisch firmware features
+ * Add support for I2C temperature sensor LM75AD (#2909)
+ * Add option 0 to command Timers disarming all timers (#2962)
+ * Add performance improvement when updating multiple individual WS2812 pixels (#3007)
+ * Add command SetOption28 to switch between hex or decimal Sonoff Bridge RF received data format (#3008)
+ * Add command SetOption29 to switch between hex or decimal IR received data format
+ * Add decimal values support for commands ADD, SUB, MULT and SCALE (#3083, #3089)
+ * Add support for bitflags SetOption50 .. SetOption81 (#3118)
+ *
+ * 5.14.0b
+ * Add Console Commands to send KNX Commands
+   usage: KnxTx_Cmnd[slot] command
+   where [slot] is any of the 5 slots on the KNX Menu and command is 0 or 1
+   example: KnxTx_Cmnd1 0
+ * Add Console Commands to send KNX Values
+   usage: KnxTx_Val[slot] value
+   where [slot] is any of the 5 slots on the KNX Menu and value is a number
+   example: KnxTx_Val1 35
+ * Add Slots on the KNX Web Menu to select Group Addess to send data from console commands
+ * Add Events to trigger rules when a command is received from KNX
+   usage on rules as: event#KnxRx_Cmnd[slot]
+   where [slot] is any of the 5 slots on the KNX Menu
+   example: rule on event#KnxRx_Cmnd1 do VAR1 %value% endon
+   (where %value% can be 0 or 1)
+ * Add Events to trigger rules when received read requests from KNX
+   usage on rules as: event#KnxRx_Req[slot]
+   where [slot] is any of the 5 slots on the KNX Menu
+   example: rule on event#KnxRx_Req1 do KnxTx_Val1 35 endon
+ * Add Slots on the KNX Web Menu to select Group Addess to receive data to trigger rules
+ * Add two rule sets of 511 characters using commands rule1, rule2 and rule3
+ * Add Ukranian language file
+ * Add rule support for IrReceive and RfReceive (#2758)
+ * Add command WebSend [<host>(:<port>,<user>:<password>)] <command> (#2821)
+ * Add source information to command execution to be shown with logging option 3 (#2843)
+>>>>>>> 2058b9f... Updated to v6.1.0a
  * Fix some Pow R2 and S31 checksum errors (#1907)
  * Fix display selection of un-available GPIO options in Module Configuration webpage (#2718)
  * Fix timer re-trigger within one minute after restart (#2744)

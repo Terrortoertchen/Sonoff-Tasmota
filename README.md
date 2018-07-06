@@ -175,11 +175,17 @@ Different firmware images are released based on Features and Sensors selection g
 | USE_SPI                        | - | - | - | - | - |
 | USE_MHZ19                      | x | x | - | x | x |
 <<<<<<< HEAD
+<<<<<<< HEAD
 | USE_SENSEAIR                   | x | x | - | x | x |
 | USE_PMS5003                    | x | x | - | x | x |
+=======
+| USE_SENSEAIR                   | x | - | - | x | x |
+| USE_PMS5003                    | x | - | - | x | x |
+>>>>>>> 2058b9f... Updated to v6.1.0a
 | USE_NOVA_SDS                   | x | - | - | x | x |
-| USE_PZEM004T                   | x | x | - | x | x |
+| USE_PZEM004T                   | x | - | - | x | x |
 | USE_SERIAL_BRIDGE              | x | - | - | x | x |
+<<<<<<< HEAD
 =======
 | USE_SENSEAIR                   | x | - | - | x | x |
 | USE_PMS5003                    | x | - | - | x | x |
@@ -189,11 +195,16 @@ Different firmware images are released based on Features and Sensors selection g
 | USE_SDM120                     | - | - | - | - | x |
 | USE_SDM630                     | - | - | - | - | x |
 >>>>>>> upstream/development
+=======
+| USE_SDM120                     | - | - | - | - | x |
+| USE_SDM630                     | - | - | - | - | x |
+>>>>>>> 2058b9f... Updated to v6.1.0a
 | USE_IR_REMOTE                  | x | x | - | x | x |
 | USE_IR_HVAC                    | - | - | - | - | x |
 | USE_IR_RECEIVE                 | x | - | - | x | x |
 | USE_WS2812                     | x | x | - | x | x |
 | USE_WS2812_DMA                 | - | - | - | - | - |
+<<<<<<< HEAD
 <<<<<<< HEAD
 | USE_ARILUX_RF                  | x | x | - | x | x |
 | USE_SR04                       | x | - | - | x | x |
@@ -208,6 +219,10 @@ Different firmware images are released based on Features and Sensors selection g
 =======
 | USE_ARILUX_RF                  | x | - | - | x | x |
 | USE_SR04                       | x | - | - | x | x |
+=======
+| USE_ARILUX_RF                  | x | - | - | x | x |
+| USE_SR04                       | x | - | - | x | x |
+>>>>>>> 2058b9f... Updated to v6.1.0a
 | USE_RF_FLASH                   | x | - | - | x | x |
 
 #### Typical file size
@@ -219,7 +234,10 @@ Different firmware images are released based on Features and Sensors selection g
 | ESP/Arduino lib v2.4.1      | 544k   | 500k    | 408k    | 555k | 567k       |
 
 See [Tasmota ESP/Arduino library version related issues](https://github.com/arendst/Sonoff-Tasmota/wiki/Theo's-Tasmota-Tips#20180523---relation-tasmota-and-esp8266arduino-core-version) for more information.
+<<<<<<< HEAD
 >>>>>>> upstream/development
+=======
+>>>>>>> 2058b9f... Updated to v6.1.0a
 
 ### Contribute
 You can contribute to Sonoff-Tasmota by
@@ -235,13 +253,14 @@ You can contribute to Sonoff-Tasmota by
 #### Libraries used
 Libraries used with Sonoff-Tasmota are:
 - [ESP8266 core for Arduino](https://github.com/esp8266/Arduino)
-- [Adafruit BME680](https://github.com/adafruit/Adafruit_BME680)
-- [Adafruit Sensor](https://github.com/adafruit/Adafruit_Sensor)
 - [Adafruit SGP30](https://github.com/adafruit/Adafruit_SGP30)
 - [ArduinoJson](https://arduinojson.org/)
+- [Bosch BME680](https://github.com/BoschSensortec/BME680_driver)
+- [C2 Programmer](http://app.cear.ufpb.br/~lucas.hartmann/tag/efm8bb1/)
 - [Esp8266MqttClient](https://github.com/tuanpmt/ESP8266MQTTClient)
 - [esp-knx-ip](https://github.com/envy/esp-knx-ip)
 - [esp-mqtt-arduino](https://github.com/i-n-g-o/esp-mqtt-arduino)
+<<<<<<< HEAD
 =======
 #### Libraries Used
 Libraries used with Sonoff-Tasmota are:
@@ -255,6 +274,9 @@ Libraries used with Sonoff-Tasmota are:
 - [esp-mqtt-arduino](https://github.com/i-n-g-o/esp-mqtt-arduino)
 - [ESPAsyncUDP](https://github.com/me-no-dev/ESPAsyncUDP)
 >>>>>>> upstream/development
+=======
+- [ESPAsyncUDP](https://github.com/me-no-dev/ESPAsyncUDP)
+>>>>>>> 2058b9f... Updated to v6.1.0a
 - [I2Cdevlib](https://github.com/jrowberg/i2cdevlib)
 - [IRremoteEsp8266](https://github.com/markszabo/IRremoteESP8266)
 - [JobaTsl2561](https://github.com/joba-1/Joba_Tsl2561)
