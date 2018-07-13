@@ -28,11 +28,19 @@
  * Use online command StateText to translate ON, OFF, HOLD and TOGGLE.
  * Use online command Prefix to translate cmnd, stat and tele.
  *
+<<<<<<< HEAD
  * Updated until v5.12.0l
+=======
+ * Updated until v6.0.0a
+>>>>>>> upstream/development
 \*********************************************************************/
 
 //#define LANGUAGE_MODULE_NAME         // Enable to display "Module Generic" (ie Spanish), Disable to display "Generic Module" (ie English)
 
+<<<<<<< HEAD
+=======
+#define LANGUAGE_LCID 1043
+>>>>>>> upstream/development
 // HTML (ISO 639-1) Language Code
 #define D_HTML_LANGUAGE "nl"
 
@@ -91,6 +99,10 @@
 #define D_FALSE "Onwaar"
 #define D_FILE "Bestand"
 #define D_FREE_MEMORY "Vrij geheugen"
+<<<<<<< HEAD
+=======
+#define D_FREQUENCY "Frequentie"
+>>>>>>> upstream/development
 #define D_GAS "Gas"
 #define D_GATEWAY "Gateway"
 #define D_GROUP "Groep"
@@ -101,6 +113,7 @@
 #define D_IMMEDIATE "onmiddelijk"      // Button immediate
 #define D_INDEX "Index"
 #define D_INFO "Info"
+#define D_INFRARED "Infrarood"
 #define D_INITIALIZED "Geinitialiseerd"
 #define D_IP_ADDRESS "IP Adres"
 #define D_LIGHT "Licht"
@@ -119,6 +132,9 @@
 #define D_PORT "Poort"
 #define D_POWER_FACTOR "Arbeidsfactor"
 #define D_POWERUSAGE "Vermogen"
+#define D_POWERUSAGE_ACTIVE "Werkelijk vermogen"
+#define D_POWERUSAGE_APPARENT "Schijnbaar vermogen"
+#define D_POWERUSAGE_REACTIVE "Blindvermogen"
 #define D_PRESSURE "Luchtdruk"
 #define D_PRESSUREATSEALEVEL "ZeeLuchtdruk"
 #define D_PROGRAM_FLASH_SIZE "Programma Flash Grootte"
@@ -154,6 +170,7 @@
 #define D_UPTIME "Bedrijfstijd"
 #define D_USER "Gebruiker"
 #define D_UTC_TIME "UTC"
+#define D_UV_INDEX "UV-index"
 #define D_UV_LEVEL "UV niveau"
 #define D_VERSION "Versie"
 #define D_VOLTAGE "Spanning"
@@ -198,7 +215,11 @@
 #define D_USE_DEFAULTS "Gebruik standaardwaarden"
 #define D_ERASED_SECTOR "Wis sector"
 
+<<<<<<< HEAD
 // webserver.ino
+=======
+// xdrv_02_webserver.ino
+>>>>>>> upstream/development
 #define D_MINIMAL_FIRMWARE_PLEASE_UPGRADE "MINIMAL firmware - opwaarderen"
 #define D_WEBSERVER_ACTIVE_ON "Webserver actief op"
 #define D_WITH_IP_ADDRESS "met IP adres"
@@ -314,13 +335,21 @@
 #define D_UPLOAD_ERR_7 "Opwaarderen afgebroken"
 #define D_UPLOAD_ERR_8 "Ongeldig bestand"
 #define D_UPLOAD_ERR_9 "Bestand is te groot"
+#define D_UPLOAD_ERR_10 "Init RF chip mislukt"
+#define D_UPLOAD_ERR_11 "Wissen RF chip mislukt"
+#define D_UPLOAD_ERR_12 "Opwaarderen RF chip mislukt"
+#define D_UPLOAD_ERR_13 "Decoderen RF bestand mislukt"
 #define D_UPLOAD_ERROR_CODE "Opwaardeer foutcode"
 
 #define D_ENTER_COMMAND "Geef opdracht"
 #define D_ENABLE_WEBLOG_FOR_RESPONSE "Schakel weblog 2 in indien antwoord verwacht"
 #define D_NEED_USER_AND_PASSWORD "Benodig user=<gebruiker>&password=<webwachtwoord>"
 
+<<<<<<< HEAD
 // xdrv_00_mqtt.ino
+=======
+// xdrv_01_mqtt.ino
+>>>>>>> upstream/development
 #define D_FINGERPRINT "Controleer TLS vingerafdruk..."
 #define D_TLS_CONNECT_FAILED_TO "TLS Verbinding mislukt naar"
 #define D_RETRY_IN "Opnieuw proberen over"
@@ -328,7 +357,11 @@
 #define D_INSECURE "Door ongeldige vingerafdruk een onveilige verbinding"
 #define D_CONNECT_FAILED_TO "Verbinding mislukt naar"
 
+<<<<<<< HEAD
 // xdrv_wemohue.ino
+=======
+// xplg_wemohue.ino
+>>>>>>> upstream/development
 #define D_MULTICAST_DISABLED "Multicast uitgeschakeld"
 #define D_MULTICAST_REJOINED "Multicast verbonden"
 #define D_MULTICAST_JOIN_FAILED "Multicast verbinding mislukt"
@@ -348,7 +381,11 @@
 #define D_HUE_POST_ARGS "Hue POST argumenten"
 #define D_3_RESPONSE_PACKETS_SENT "3 antwoord paketten verstuurd"
 
+<<<<<<< HEAD
 // xdrv_05_domoticz.ino
+=======
+// xdrv_07_domoticz.ino
+>>>>>>> upstream/development
 #define D_DOMOTICZ_PARAMETERS "Domoticz parameters"
 #define D_DOMOTICZ_IDX "Idx"
 #define D_DOMOTICZ_KEY_IDX "Toets idx"
@@ -376,6 +413,7 @@
 #define D_TIMER_ACTION "Actie"
 
 // xdrv_10_knx.ino
+<<<<<<< HEAD
 #define D_CONFIGURE_KNX "Configure KNX"
 #define D_KNX_PARAMETERS "KNX Parameters"
 #define D_KNX_GENERAL_CONFIG "General"
@@ -394,6 +432,29 @@
 #define D_KNX_COMMAND_OTHER "Other"
 #define D_SENT_TO "sent to"
 #define D_KNX_WARNING "The group address ( 0 / 0 / 0 ) is reserved and can not be used."
+=======
+#define D_CONFIGURE_KNX "Configureer KNX"
+#define D_KNX_PARAMETERS "KNX Parameters"
+#define D_KNX_GENERAL_CONFIG "Algemeen"
+#define D_KNX_PHYSICAL_ADDRESS "Eigen adres"
+#define D_KNX_PHYSICAL_ADDRESS_NOTE "(Moet uniek zijn op het KNX netwerk)"
+#define D_KNX_ENABLE "KNX inschakelen"
+#define D_KNX_GROUP_ADDRESS_TO_WRITE "Stuur gegevens naar groep adressen"
+#define D_ADD "Toevoegen"
+#define D_DELETE "Verwijder"
+#define D_REPLY "Antwoord"
+#define D_KNX_GROUP_ADDRESS_TO_READ "Ontvang gegevens van groep adressen"
+#define D_LOG_KNX "KNX: "
+#define D_RECEIVED_FROM "Ontvangen van"
+#define D_KNX_COMMAND_WRITE "Schrijven"
+#define D_KNX_COMMAND_READ "Lezen"
+#define D_KNX_COMMAND_OTHER "Overige"
+#define D_SENT_TO "verzend naar"
+#define D_KNX_WARNING "Groep adres (0/0/0) is gereserveerd en mag niet worden gebruikt."
+#define D_KNX_ENHANCEMENT "Verbeter verbinding"
+#define D_KNX_TX_SLOT "KNX TX"
+#define D_KNX_RX_SLOT "KNX RX"
+>>>>>>> upstream/development
 
 // xdrv_03_energy.ino
 #define D_ENERGY_TODAY "Verbruik vandaag"
@@ -453,10 +514,24 @@
 #define D_SENSOR_SBR_TX   "SerBr Tx"
 #define D_SENSOR_SR04_TRIG "SR04 Tri"
 #define D_SENSOR_SR04_ECHO "SR04 Ech"
+<<<<<<< HEAD
+=======
+#define D_SENSOR_SDM120_TX "SDM120 Tx"
+#define D_SENSOR_SDM120_RX "SDM120 Rx"
+#define D_SENSOR_SDM630_TX "SDM630 Tx"
+#define D_SENSOR_SDM630_RX "SDM630 Rx"
+#define D_SENSOR_TM1638_CLK "TM16 CLK"
+#define D_SENSOR_TM1638_DIO "TM16 DIO"
+#define D_SENSOR_TM1638_STB "TM16 STB"
+>>>>>>> upstream/development
 
 // Units
 #define D_UNIT_AMPERE "A"
 #define D_UNIT_CENTIMETER "cm"
+<<<<<<< HEAD
+=======
+#define D_UNIT_HERTZ "Hz"
+>>>>>>> upstream/development
 #define D_UNIT_HOUR "h"
 #define D_UNIT_KILOOHM "kOhm"
 #define D_UNIT_KILOWATTHOUR "kWh"
@@ -473,6 +548,8 @@
 #define D_UNIT_PRESSURE "hPa"
 #define D_UNIT_SECOND "sec"
 #define D_UNIT_SECTORS "sectoren"
+#define D_UNIT_VA "VA"
+#define D_UNIT_VAR "VAr"
 #define D_UNIT_VOLT "V"
 #define D_UNIT_WATT "W"
 #define D_UNIT_WATTHOUR "Wh"

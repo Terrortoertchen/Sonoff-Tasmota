@@ -21,6 +21,11 @@
 /*********************************************************************************************\
  * PlanTower PMS5003 and PMS7003 particle concentration sensor
  * For background information see http://aqicn.org/sensor/pms5003-7003/
+<<<<<<< HEAD
+=======
+ *
+ * Hardware Serial will be selected if GPIO3 = [PMS5003]
+>>>>>>> upstream/development
 \*********************************************************************************************/
 
 #include <TasmotaSerial.h>
@@ -39,6 +44,11 @@ struct pms5003data {
   uint16_t checksum;
 } pms_data;
 
+<<<<<<< HEAD
+=======
+/*********************************************************************************************/
+
+>>>>>>> upstream/development
 boolean PmsReadData()
 {
   if (! PmsSerial->available()) {
@@ -97,10 +107,17 @@ void PmsSecond()                 // Every second
 void PmsInit()
 {
   pms_type = 0;
+<<<<<<< HEAD
 
   if (pin[GPIO_PMS5003] < 99) {
     PmsSerial = new TasmotaSerial(pin[GPIO_PMS5003], -1);
     if (PmsSerial->begin()) {
+=======
+  if (pin[GPIO_PMS5003] < 99) {
+    PmsSerial = new TasmotaSerial(pin[GPIO_PMS5003], -1, 1);
+    if (PmsSerial->begin(9600)) {
+      if (PmsSerial->hardwareSerial()) { ClaimSerial(); }
+>>>>>>> upstream/development
       pms_type = 1;
     }
   }

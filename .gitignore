@@ -2,6 +2,7 @@
 .DS_Store
 .fuse_hidden*
 
+<<<<<<< HEAD
 ## Project files ######.pioenvs
 .piolibdeps
 .clang_complete
@@ -19,3 +20,15 @@ lib/readme.txt
 .vscode/launch.json
 .vscode/.browse.c_cpp.db*
 >>>>>>> master
+=======
+## Project files ######
+.pioenvs
+.piolibdeps
+.clang_complete
+.gcc-flags.json
+sonoff/user_config_override.h
+build
+
+## Visual Studio Code specific ######
+.vscode
+>>>>>>> upstream/development

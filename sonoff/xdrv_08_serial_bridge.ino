@@ -61,6 +61,10 @@ void SerialBridgeInput()
     serial_bridge_buffer[serial_bridge_in_byte_counter] = 0;  // serial data completed
     snprintf_P(mqtt_data, sizeof(mqtt_data), PSTR("{\"" D_JSON_SSERIALRECEIVED "\":\"%s\"}"), serial_bridge_buffer);
     MqttPublishPrefixTopic_P(RESULT_OR_TELE, PSTR(D_JSON_SSERIALRECEIVED));
+<<<<<<< HEAD
+=======
+//    XdrvRulesProcess();
+>>>>>>> upstream/development
     serial_bridge_in_byte_counter = 0;
   }
 }
@@ -89,7 +93,14 @@ boolean SerialBridgeCommand()
   boolean serviced = true;
 
   int command_code = GetCommandCode(command, sizeof(command), XdrvMailbox.topic, kSerialBridgeCommands);
+<<<<<<< HEAD
   if ((CMND_SSERIALSEND == command_code) && (XdrvMailbox.index > 0) && (XdrvMailbox.index <= 3)) {
+=======
+  if (-1 == command_code) {
+    serviced = false;  // Unknown command
+  }
+  else if ((CMND_SSERIALSEND == command_code) && (XdrvMailbox.index > 0) && (XdrvMailbox.index <= 3)) {
+>>>>>>> upstream/development
     if (XdrvMailbox.data_len > 0) {
       if (1 == XdrvMailbox.index) {
         SerialBridgeSerial->write(XdrvMailbox.data, XdrvMailbox.data_len);
@@ -114,9 +125,14 @@ boolean SerialBridgeCommand()
     }
     snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_LVALUE, command, Settings.sbaudrate * 1200);
   }
+<<<<<<< HEAD
   else {
     serviced = false;  // Unknown command
   }
+=======
+  else serviced = false;  // Unknown command
+  
+>>>>>>> upstream/development
   return serviced;
 }
 
@@ -132,7 +148,11 @@ boolean Xdrv08(byte function)
 
   if (serial_bridge_active) {
     switch (function) {
+<<<<<<< HEAD
       case FUNC_INIT:
+=======
+      case FUNC_PRE_INIT:
+>>>>>>> upstream/development
         SerialBridgeInit();
         break;
       case FUNC_LOOP:

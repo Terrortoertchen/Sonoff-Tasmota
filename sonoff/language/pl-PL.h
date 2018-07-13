@@ -33,6 +33,10 @@
 
 //#define LANGUAGE_MODULE_NAME         // Enable to display "Module Generic" (ie Spanish), Disable to display "Generic Module" (ie English)
 
+<<<<<<< HEAD
+=======
+#define LANGUAGE_LCID 1045
+>>>>>>> upstream/development
 // HTML (ISO 639-1) Language Code
 #define D_HTML_LANGUAGE "pl"
 
@@ -43,7 +47,11 @@
 #define D_HOUR_MINUTE_SEPARATOR ":"
 #define D_MINUTE_SECOND_SEPARATOR ":"
 
+<<<<<<< HEAD
 #define D_DAY3LIST "PonWtoŚroCzwPiąSobNie"
+=======
+#define D_DAY3LIST "NiePonWtoŚroCzwPiąSob"
+>>>>>>> upstream/development
 #define D_MONTH3LIST "StyLutMarKwiMajCzeLipSieWrzPaźLisGru"
 
 // Non JSON decimal separator
@@ -91,6 +99,10 @@
 #define D_FALSE "Fałsz"
 #define D_FILE "Plik"
 #define D_FREE_MEMORY "Wolna pamięć"
+<<<<<<< HEAD
+=======
+#define D_FREQUENCY "Frequency"
+>>>>>>> upstream/development
 #define D_GAS "Gas"
 #define D_GATEWAY "Brama"
 #define D_GROUP "Grupa"
@@ -101,6 +113,7 @@
 #define D_IMMEDIATE "Natychmiastowe"      // Button immediate
 #define D_INDEX "Indeks"
 #define D_INFO "Informacja"
+#define D_INFRARED "Infrared"
 #define D_INITIALIZED "Zainicjowany"
 #define D_IP_ADDRESS "Adres IP"
 #define D_LIGHT "Światło"
@@ -119,6 +132,12 @@
 #define D_PORT "Port"
 #define D_POWER_FACTOR "Współczynik mocy"
 #define D_POWERUSAGE "Moc"
+<<<<<<< HEAD
+=======
+#define D_POWERUSAGE_ACTIVE "Active Power"
+#define D_POWERUSAGE_APPARENT "Apparent Power"
+#define D_POWERUSAGE_REACTIVE "Reactive Power"
+>>>>>>> upstream/development
 #define D_PRESSURE "Ciśnienie"
 #define D_PRESSUREATSEALEVEL "Ciśnienie na poziomie morza"
 #define D_PROGRAM_FLASH_SIZE "Wielkość programu flash"
@@ -154,6 +173,7 @@
 #define D_UPTIME "Uptime"
 #define D_USER "Użytkownik"
 #define D_UTC_TIME "UTC"
+#define D_UV_INDEX "UV Index"
 #define D_UV_LEVEL "Poziom UV"
 #define D_VERSION "Wersja"
 #define D_VOLTAGE "Napięcie"
@@ -198,7 +218,11 @@
 #define D_USE_DEFAULTS "Użyj domyślnych"
 #define D_ERASED_SECTOR "Wymazany sektor"
 
+<<<<<<< HEAD
 // webserver.ino
+=======
+// xdrv_02_webserver.ino
+>>>>>>> upstream/development
 #define D_MINIMAL_FIRMWARE_PLEASE_UPGRADE "Oprogramowanie MINIMAL - proszę uaktualnić"
 #define D_WEBSERVER_ACTIVE_ON "Aktywny serwer Web"
 #define D_WITH_IP_ADDRESS "z adresem IP"
@@ -314,6 +338,7 @@
 #define D_UPLOAD_ERR_7 "Wgrywanie przerwane"
 #define D_UPLOAD_ERR_8 "Błędny plik"
 #define D_UPLOAD_ERR_9 "Plik jest za duży"
+<<<<<<< HEAD
 #define D_UPLOAD_ERROR_CODE "Błąd wgrywania"
 
 #define D_ENTER_COMMAND "Wprowadź polecenie"
@@ -341,6 +366,39 @@
 #define D_WEMO_SETUP "WeMo setup"
 #define D_RESPONSE_SENT "Odpowiedź wysłana"
 
+=======
+#define D_UPLOAD_ERR_10 "Failed to init RF chip"
+#define D_UPLOAD_ERR_11 "Failed to erase RF chip"
+#define D_UPLOAD_ERR_12 "Failed to write to RF chip"
+#define D_UPLOAD_ERR_13 "Failed to decode RF firmware"
+#define D_UPLOAD_ERROR_CODE "Błąd wgrywania"
+
+#define D_ENTER_COMMAND "Wprowadź polecenie"
+#define D_ENABLE_WEBLOG_FOR_RESPONSE "Włącz poziom 2 zapisu Weblog, jeśli oczekiwana jest odpowiedź"
+#define D_NEED_USER_AND_PASSWORD "Wymagany użytkownik=<username>&hasło=<password>"
+
+// xdrv_01_mqtt.ino
+#define D_FINGERPRINT "Weryfikuj odcisk TLS..."
+#define D_TLS_CONNECT_FAILED_TO "Nieudane połączenie TLS do"
+#define D_RETRY_IN "Spróbuj ponownie"
+#define D_VERIFIED "Zweryfikowano odcisku"
+#define D_INSECURE "Nieprawidłowe połączenie z powodu błędnego odcisku TLS"
+#define D_CONNECT_FAILED_TO "Nie udało się nawiązać połączenia"
+
+// xplg_wemohue.ino
+#define D_MULTICAST_DISABLED "Multicast jest wyłączony"
+#define D_MULTICAST_REJOINED "Multicast (re)dołączony"
+#define D_MULTICAST_JOIN_FAILED "Multicast nie powiodło się"
+#define D_FAILED_TO_SEND_RESPONSE "Nie udało się wysłać odpowiedzi"
+
+#define D_WEMO "WeMo"
+#define D_WEMO_BASIC_EVENT "WeMo podstawowe zdarzenie"
+#define D_WEMO_EVENT_SERVICE "WeMo zdarzenie service"
+#define D_WEMO_META_SERVICE "WeMo meta service"
+#define D_WEMO_SETUP "WeMo setup"
+#define D_RESPONSE_SENT "Odpowiedź wysłana"
+
+>>>>>>> upstream/development
 #define D_HUE "Hue"
 #define D_HUE_BRIDGE_SETUP "Hue setup"
 #define D_HUE_API_NOT_IMPLEMENTED "Hue API nie zaimplementowane"
@@ -348,7 +406,11 @@
 #define D_HUE_POST_ARGS "Hue POST args"
 #define D_3_RESPONSE_PACKETS_SENT "3 pakiety odpowiedzi wysyłane"
 
+<<<<<<< HEAD
 // xdrv_05_domoticz.ino
+=======
+// xdrv_07_domoticz.ino
+>>>>>>> upstream/development
 #define D_DOMOTICZ_PARAMETERS "Parametry Domoticz"
 #define D_DOMOTICZ_IDX "Idx"
 #define D_DOMOTICZ_KEY_IDX "Key idx"
@@ -394,6 +456,12 @@
 #define D_KNX_COMMAND_OTHER "Other"
 #define D_SENT_TO "sent to"
 #define D_KNX_WARNING "The group address ( 0 / 0 / 0 ) is reserved and can not be used."
+<<<<<<< HEAD
+=======
+#define D_KNX_ENHANCEMENT "Communication Enhancement"
+#define D_KNX_TX_SLOT "KNX TX"
+#define D_KNX_RX_SLOT "KNX RX"
+>>>>>>> upstream/development
 
 // xdrv_03_energy.ino
 #define D_ENERGY_TODAY "Energia Dzisiaj"
@@ -453,10 +521,24 @@
 #define D_SENSOR_SBR_TX   "SerBr Tx"
 #define D_SENSOR_SR04_TRIG "SR04 Tri"
 #define D_SENSOR_SR04_ECHO "SR04 Ech"
+<<<<<<< HEAD
+=======
+#define D_SENSOR_SDM120_TX "SDM120 Tx"
+#define D_SENSOR_SDM120_RX "SDM120 Rx"
+#define D_SENSOR_SDM630_TX "SDM630 Tx"
+#define D_SENSOR_SDM630_RX "SDM630 Rx"
+#define D_SENSOR_TM1638_CLK "TM16 CLK"
+#define D_SENSOR_TM1638_DIO "TM16 DIO"
+#define D_SENSOR_TM1638_STB "TM16 STB"
+>>>>>>> upstream/development
 
 // Units
 #define D_UNIT_AMPERE "A"
 #define D_UNIT_CENTIMETER "cm"
+<<<<<<< HEAD
+=======
+#define D_UNIT_HERTZ "Hz"
+>>>>>>> upstream/development
 #define D_UNIT_HOUR "Godz"
 #define D_UNIT_KILOOHM "kOhm"
 #define D_UNIT_KILOWATTHOUR "kWh"
@@ -473,6 +555,8 @@
 #define D_UNIT_PRESSURE "hPa"
 #define D_UNIT_SECOND "sec"
 #define D_UNIT_SECTORS "sektory"
+#define D_UNIT_VA "VA"
+#define D_UNIT_VAR "VAr"
 #define D_UNIT_VOLT "V"
 #define D_UNIT_WATT "W"
 #define D_UNIT_WATTHOUR "Wh"
