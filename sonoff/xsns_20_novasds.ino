@@ -21,6 +21,11 @@
 /*********************************************************************************************\
  * Nova Fitness SDS011 (and possibly SDS021) particle concentration sensor
  * For background information see http://aqicn.org/sensor/sds011/
+<<<<<<< HEAD
+=======
+ *
+ * Hardware Serial will be selected if GPIO3 = [SDS0X01]
+>>>>>>> upstream/development
 \*********************************************************************************************/
 
 #include <TasmotaSerial.h>
@@ -81,10 +86,17 @@ void NovaSdsSecond()                 // Every second
 void NovaSdsInit()
 {
   novasds_type = 0;
+<<<<<<< HEAD
 
   if (pin[GPIO_SDS0X1] < 99) {
     NovaSdsSerial = new TasmotaSerial(pin[GPIO_SDS0X1], -1);
     if (NovaSdsSerial->begin()) {
+=======
+  if (pin[GPIO_SDS0X1] < 99) {
+    NovaSdsSerial = new TasmotaSerial(pin[GPIO_SDS0X1], -1, 1);
+    if (NovaSdsSerial->begin(9600)) {
+      if (NovaSdsSerial->hardwareSerial()) { ClaimSerial(); }
+>>>>>>> upstream/development
       novasds_type = 1;
     }
   }

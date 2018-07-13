@@ -1,7 +1,11 @@
 /*
   pt-PT.h - localization for Portuguese - Portugal for Sonoff-Tasmota
 
+<<<<<<< HEAD
   Copyright (C) 2018  Theo Arends and Paulo Paiva
+=======
+  Copyright (C) 2018  Paulo Paiva
+>>>>>>> upstream/development
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -33,6 +37,10 @@
 
 //#define LANGUAGE_MODULE_NAME         // Enable to display "Module Generic" (ie Spanish), Disable to display "Generic Module" (ie English)
 
+<<<<<<< HEAD
+=======
+#define LANGUAGE_LCID 2070
+>>>>>>> upstream/development
 // HTML (ISO 639-1) Language Code
 #define D_HTML_LANGUAGE "pt"
 
@@ -91,6 +99,10 @@
 #define D_FALSE "Falso"
 #define D_FILE "Ficheiro"
 #define D_FREE_MEMORY "Memoria Livre"
+<<<<<<< HEAD
+=======
+#define D_FREQUENCY "Frequency"
+>>>>>>> upstream/development
 #define D_GAS "Gás"
 #define D_GATEWAY "Gateway"
 #define D_GROUP "Grupo"
@@ -101,6 +113,10 @@
 #define D_IMMEDIATE "Immediato"      // Button immediate
 #define D_INDEX "Indíce"
 #define D_INFO "Info"
+<<<<<<< HEAD
+=======
+#define D_INFRARED "Infrared"
+>>>>>>> upstream/development
 #define D_INITIALIZED "Inicializado"
 #define D_IP_ADDRESS "Endereço IP"
 #define D_LIGHT "Luz"
@@ -119,6 +135,12 @@
 #define D_PORT "Porta"
 #define D_POWER_FACTOR "Factor de Potência"
 #define D_POWERUSAGE "Potência"
+<<<<<<< HEAD
+=======
+#define D_POWERUSAGE_ACTIVE "Active Power"
+#define D_POWERUSAGE_APPARENT "Apparent Power"
+#define D_POWERUSAGE_REACTIVE "Reactive Power"
+>>>>>>> upstream/development
 #define D_PRESSURE "Pressão"
 #define D_PRESSUREATSEALEVEL "Pressão ao nível do Mar"
 #define D_PROGRAM_FLASH_SIZE "Tamanho do Programa na Flash"
@@ -154,6 +176,10 @@
 #define D_UPTIME "Tempo de Atividade"
 #define D_USER "Utilizador"
 #define D_UTC_TIME "UTC"
+<<<<<<< HEAD
+=======
+#define D_UV_INDEX "Indíce UV"
+>>>>>>> upstream/development
 #define D_UV_LEVEL "Nível UV"
 #define D_VERSION "Versão"
 #define D_VOLTAGE "Voltagem"
@@ -198,7 +224,11 @@
 #define D_USE_DEFAULTS "Usar predefinições"
 #define D_ERASED_SECTOR "Apagar setores"
 
+<<<<<<< HEAD
 // webserver.ino
+=======
+// xdrv_02_webserver.ino
+>>>>>>> upstream/development
 #define D_MINIMAL_FIRMWARE_PLEASE_UPGRADE "MINIMO firmware - Atualizar Por favor"
 #define D_WEBSERVER_ACTIVE_ON "Servidor WEB ativo em"
 #define D_WITH_IP_ADDRESS "com o endereço IP"
@@ -314,13 +344,24 @@
 #define D_UPLOAD_ERR_7 "Envio cancelado"
 #define D_UPLOAD_ERR_8 "Ficheiro inválido"
 #define D_UPLOAD_ERR_9 "Ficheiro demasiado grande"
+<<<<<<< HEAD
+=======
+#define D_UPLOAD_ERR_10 "Failed to init RF chip"
+#define D_UPLOAD_ERR_11 "Failed to erase RF chip"
+#define D_UPLOAD_ERR_12 "Failed to write to RF chip"
+#define D_UPLOAD_ERR_13 "Failed to decode RF firmware"
+>>>>>>> upstream/development
 #define D_UPLOAD_ERROR_CODE "Código de erro do envio"
 
 #define D_ENTER_COMMAND "Inserir comando"
 #define D_ENABLE_WEBLOG_FOR_RESPONSE "Habilitar weblog 2 se resposta esperada"
 #define D_NEED_USER_AND_PASSWORD "Necessário user=<nome utilizador>&password=<palavra chave>"
 
+<<<<<<< HEAD
 // xdrv_00_mqtt.ino
+=======
+// xdrv_01_mqtt.ino
+>>>>>>> upstream/development
 #define D_FINGERPRINT "Verifique a impressão digital TLS..."
 #define D_TLS_CONNECT_FAILED_TO "TLS não conseguiu ligar"
 #define D_RETRY_IN "Tentativa em"
@@ -328,7 +369,11 @@
 #define D_INSECURE "Ligação insegura devido à impressão digital inválida"
 #define D_CONNECT_FAILED_TO "A ligação falhou ao"
 
+<<<<<<< HEAD
 // xdrv_wemohue.ino
+=======
+// xplg_wemohue.ino
+>>>>>>> upstream/development
 #define D_MULTICAST_DISABLED "Multicast desabilitado"
 #define D_MULTICAST_REJOINED "Multicast (re)ingressou"
 #define D_MULTICAST_JOIN_FAILED "Multicast falha no reingresso"
@@ -348,7 +393,11 @@
 #define D_HUE_POST_ARGS "Hue POST args"
 #define D_3_RESPONSE_PACKETS_SENT "3 pacotes de resposta enviados"
 
+<<<<<<< HEAD
 // xdrv_05_domoticz.ino
+=======
+// xdrv_07_domoticz.ino
+>>>>>>> upstream/development
 #define D_DOMOTICZ_PARAMETERS "Parametros Domoticz"
 #define D_DOMOTICZ_IDX "Idx"
 #define D_DOMOTICZ_KEY_IDX "Chave idx"
@@ -394,6 +443,12 @@
 #define D_KNX_COMMAND_OTHER "Other"
 #define D_SENT_TO "sent to"
 #define D_KNX_WARNING "The group address ( 0 / 0 / 0 ) is reserved and can not be used."
+<<<<<<< HEAD
+=======
+#define D_KNX_ENHANCEMENT "Communication Enhancement"
+#define D_KNX_TX_SLOT "KNX TX"
+#define D_KNX_RX_SLOT "KNX RX"
+>>>>>>> upstream/development
 
 // xdrv_03_energy.ino
 #define D_ENERGY_TODAY "Consumo energético de hoje"
@@ -453,10 +508,24 @@
 #define D_SENSOR_SBR_TX   "SerBr Tx"
 #define D_SENSOR_SR04_TRIG "SR04 Tri"
 #define D_SENSOR_SR04_ECHO "SR04 Ech"
+<<<<<<< HEAD
+=======
+#define D_SENSOR_SDM120_TX "SDM120 Tx"
+#define D_SENSOR_SDM120_RX "SDM120 Rx"
+#define D_SENSOR_SDM630_TX "SDM630 Tx"
+#define D_SENSOR_SDM630_RX "SDM630 Rx"
+#define D_SENSOR_TM1638_CLK "TM16 CLK"
+#define D_SENSOR_TM1638_DIO "TM16 DIO"
+#define D_SENSOR_TM1638_STB "TM16 STB"
+>>>>>>> upstream/development
 
 // Units
 #define D_UNIT_AMPERE "A"
 #define D_UNIT_CENTIMETER "cm"
+<<<<<<< HEAD
+=======
+#define D_UNIT_HERTZ "Hz"
+>>>>>>> upstream/development
 #define D_UNIT_HOUR "Hr"
 #define D_UNIT_KILOOHM "kOhm"
 #define D_UNIT_KILOWATTHOUR "kWh"
@@ -473,6 +542,11 @@
 #define D_UNIT_PRESSURE "hPa"
 #define D_UNIT_SECOND "sec"
 #define D_UNIT_SECTORS "sectors"
+<<<<<<< HEAD
+=======
+#define D_UNIT_VA "VA"
+#define D_UNIT_VAR "VAr"
+>>>>>>> upstream/development
 #define D_UNIT_VOLT "V"
 #define D_UNIT_WATT "W"
 #define D_UNIT_WATTHOUR "Wh"

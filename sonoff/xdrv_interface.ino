@@ -18,10 +18,13 @@
 */
 
 boolean (* const xdrv_func_ptr[])(byte) PROGMEM = {   // Driver Function Pointers
+<<<<<<< HEAD
 #ifdef XDRV_00
   &Xdrv00,
 #endif
 
+=======
+>>>>>>> upstream/development
 #ifdef XDRV_01
   &Xdrv01,
 #endif
@@ -175,9 +178,29 @@ boolean XdrvMqttData(char *topicBuf, uint16_t stopicBuf, char *dataBuf, uint16_t
   return XdrvCall(FUNC_MQTT_DATA);
 }
 
+<<<<<<< HEAD
 /*********************************************************************************************\
  * Function call to all xdrv
  *
+=======
+boolean XdrvRulesProcess()
+{
+  return XdrvCall(FUNC_RULES_PROCESS);
+}
+
+void ShowFreeMem(const char *where)
+{
+  char stemp[20];
+  snprintf_P(stemp, sizeof(stemp), where);
+  XdrvMailbox.data = stemp;
+  XdrvCall(FUNC_FREE_MEM);
+}
+
+/*********************************************************************************************\
+ * Function call to all xdrv
+ *
+ * FUNC_PRE_INIT
+>>>>>>> upstream/development
  * FUNC_INIT
  * FUNC_LOOP
  * FUNC_MQTT_SUBSCRIBE
@@ -188,6 +211,11 @@ boolean XdrvMqttData(char *topicBuf, uint16_t stopicBuf, char *dataBuf, uint16_t
  * FUNC_SHOW_SENSOR
  * FUNC_EVERY_SECOND
  * FUNC_EVERY_50_MSECOND
+<<<<<<< HEAD
+=======
+ * FUNC_RULES_PROCESS
+ * FUNC_FREE_MEM
+>>>>>>> upstream/development
 \*********************************************************************************************/
 
 boolean XdrvCall(byte Function)

@@ -33,6 +33,10 @@
 
 //#define LANGUAGE_MODULE_NAME         // Enable to display "Module Generic" (ie Spanish), Disable to display "Generic Module" (ie English)
 
+<<<<<<< HEAD
+=======
+#define LANGUAGE_LCID 1029
+>>>>>>> upstream/development
 // HTML (ISO 639-1) Language Code
 #define D_HTML_LANGUAGE "cs"
 
@@ -91,6 +95,10 @@
 #define D_FALSE "Nepravda"
 #define D_FILE "Soubor"
 #define D_FREE_MEMORY "Volná paměť"
+<<<<<<< HEAD
+=======
+#define D_FREQUENCY "Frequency"
+>>>>>>> upstream/development
 #define D_GAS "Plyn"
 #define D_GATEWAY "Výchozí brána"
 #define D_GROUP "Skupina"
@@ -101,6 +109,10 @@
 #define D_IMMEDIATE "Okamžité"      // Button immediate
 #define D_INDEX "Index"
 #define D_INFO "Informace"
+<<<<<<< HEAD
+=======
+#define D_INFRARED "Infrared"
+>>>>>>> upstream/development
 #define D_INITIALIZED "Inicializovaný"
 #define D_IP_ADDRESS "Adresa IP"
 #define D_LIGHT "Světlo"
@@ -119,6 +131,12 @@
 #define D_PORT "Port"
 #define D_POWER_FACTOR "Účiník"
 #define D_POWERUSAGE "Příkon"
+<<<<<<< HEAD
+=======
+#define D_POWERUSAGE_ACTIVE "Active Power"
+#define D_POWERUSAGE_APPARENT "Apparent Power"
+#define D_POWERUSAGE_REACTIVE "Reactive Power"
+>>>>>>> upstream/development
 #define D_PRESSURE "Tlak"
 #define D_PRESSUREATSEALEVEL "Tlak na úrovni hladiny moře"
 #define D_PROGRAM_FLASH_SIZE "Velikost paměti flash"
@@ -154,6 +172,10 @@
 #define D_UPTIME "Uptime"
 #define D_USER "Uživatel"
 #define D_UTC_TIME "UTC"
+<<<<<<< HEAD
+=======
+#define D_UV_INDEX "UV Index"
+>>>>>>> upstream/development
 #define D_UV_LEVEL "úroveň UV"
 #define D_VERSION "Verze"
 #define D_VOLTAGE "Napětí"
@@ -198,7 +220,11 @@
 #define D_USE_DEFAULTS "Použij defaultní hodnoty"
 #define D_ERASED_SECTOR "Smazaný sektor"
 
+<<<<<<< HEAD
 // webserver.ino
+=======
+// xdrv_02_webserver.ino
+>>>>>>> upstream/development
 #define D_MINIMAL_FIRMWARE_PLEASE_UPGRADE "Firmware MINIMÁLNÍ - prosím zaktualizujte"
 #define D_WEBSERVER_ACTIVE_ON "Aktivní Web server"
 #define D_WITH_IP_ADDRESS "na IP adrese"
@@ -314,13 +340,24 @@
 #define D_UPLOAD_ERR_7 "Nahrávání přerušeno"
 #define D_UPLOAD_ERR_8 "Špatný soubor"
 #define D_UPLOAD_ERR_9 "Soubor je příliš velký"
+<<<<<<< HEAD
+=======
+#define D_UPLOAD_ERR_10 "Failed to init RF chip"
+#define D_UPLOAD_ERR_11 "Failed to erase RF chip"
+#define D_UPLOAD_ERR_12 "Failed to write to RF chip"
+#define D_UPLOAD_ERR_13 "Failed to decode RF firmware"
+>>>>>>> upstream/development
 #define D_UPLOAD_ERROR_CODE "Chyba nahrávání"
 
 #define D_ENTER_COMMAND "Vlož příkaz"
 #define D_ENABLE_WEBLOG_FOR_RESPONSE "Zapni úroveň 2 zápisu Weblog, pokud je očekávána odpověď"
 #define D_NEED_USER_AND_PASSWORD "Vyžadován uživatel=<username>&heslo=<password>"
 
+<<<<<<< HEAD
 // xdrv_00_mqtt.ino
+=======
+// xdrv_01_mqtt.ino
+>>>>>>> upstream/development
 #define D_FINGERPRINT "Verifikuj otisk TLS..."
 #define D_TLS_CONNECT_FAILED_TO "Nepřipojeno TLS do"
 #define D_RETRY_IN "Zopakuji za"
@@ -328,7 +365,11 @@
 #define D_INSECURE "Nesprávné připojení z důvodu chybného otisku TLS"
 #define D_CONNECT_FAILED_TO "Spojení se nepodařilo navázat"
 
+<<<<<<< HEAD
 // xdrv_wemohue.ino
+=======
+// xplg_wemohue.ino
+>>>>>>> upstream/development
 #define D_MULTICAST_DISABLED "Multicast je vypnutý"
 #define D_MULTICAST_REJOINED "Multicast opět připojený"
 #define D_MULTICAST_JOIN_FAILED "Multicast neúspěšný"
@@ -348,7 +389,11 @@
 #define D_HUE_POST_ARGS "Hue POST args"
 #define D_3_RESPONSE_PACKETS_SENT "3 pakety odpovědi odeslány"
 
+<<<<<<< HEAD
 // xdrv_05_domoticz.ino
+=======
+// xdrv_07_domoticz.ino
+>>>>>>> upstream/development
 #define D_DOMOTICZ_PARAMETERS "Nastavení Domoticz"
 #define D_DOMOTICZ_IDX "Idx"
 #define D_DOMOTICZ_KEY_IDX "Key idx"
@@ -394,6 +439,12 @@
 #define D_KNX_COMMAND_OTHER "Jiné"
 #define D_SENT_TO "pošli"
 #define D_KNX_WARNING "Skupinová adresa ( 0 / 0 / 0 ) je rezervována a nemůže být použita."
+<<<<<<< HEAD
+=======
+#define D_KNX_ENHANCEMENT "Communication Enhancement"
+#define D_KNX_TX_SLOT "KNX TX"
+#define D_KNX_RX_SLOT "KNX RX"
+>>>>>>> upstream/development
 
 // xdrv_03_energy.ino
 #define D_ENERGY_TODAY "Spotřeba Dnes"
@@ -453,10 +504,24 @@
 #define D_SENSOR_SBR_TX   "SerBr Tx"
 #define D_SENSOR_SR04_TRIG "SR04 Tri"
 #define D_SENSOR_SR04_ECHO "SR04 Ech"
+<<<<<<< HEAD
+=======
+#define D_SENSOR_SDM120_TX "SDM120 Tx"
+#define D_SENSOR_SDM120_RX "SDM120 Rx"
+#define D_SENSOR_SDM630_TX "SDM630 Tx"
+#define D_SENSOR_SDM630_RX "SDM630 Rx"
+#define D_SENSOR_TM1638_CLK "TM16 CLK"
+#define D_SENSOR_TM1638_DIO "TM16 DIO"
+#define D_SENSOR_TM1638_STB "TM16 STB"
+>>>>>>> upstream/development
 
 // Units
 #define D_UNIT_AMPERE "A"
 #define D_UNIT_CENTIMETER "cm"
+<<<<<<< HEAD
+=======
+#define D_UNIT_HERTZ "Hz"
+>>>>>>> upstream/development
 #define D_UNIT_HOUR "hod"
 #define D_UNIT_KILOOHM "kOhm"
 #define D_UNIT_KILOWATTHOUR "kWh"
@@ -473,6 +538,11 @@
 #define D_UNIT_PRESSURE "hPa"
 #define D_UNIT_SECOND "sec"
 #define D_UNIT_SECTORS "sektory"
+<<<<<<< HEAD
+=======
+#define D_UNIT_VA "VA"
+#define D_UNIT_VAR "VAr"
+>>>>>>> upstream/development
 #define D_UNIT_VOLT "V"
 #define D_UNIT_WATT "W"
 #define D_UNIT_WATTHOUR "Wh"

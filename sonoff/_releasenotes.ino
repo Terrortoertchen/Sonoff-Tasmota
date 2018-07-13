@@ -1,4 +1,100 @@
-/* 5.13.1 20180501
+/* 6.1.0a
+ * Add TM1638 switch support (#2226)
+ * Fix invalid response using more than 4 switches and domoticz
+ * Update sensor drivers to provide instant results
+ * Add read sensor retry to DS18B20, DS18x20, DHT, SHT1X and HTU21
+ * Change SHT1x driver to provide better instant results
+ * Fix DHT driver mixing values for different sensors (#1797)
+ * Change DHT driver to provide better instant results and add decimals to DHT11 (#3164)
+ * Change DS18x20 driver to provide better instant results (#3169)
+ * Change DS18B20 driver to provide better instant results
+ * Remove TSL2561 debug message and update library (#2415)
+ * Change SHT1x sensor initialization from pre-teleperiod to once during restart to fix I2C interference
+ * Add wifi and mqtt status led blinkyblinky to be disabled by SetOption31 1. Does not work when LedPower is On (deliberate) (#871, #2230, #3114, #3155)
+ * Add experimental (untested) TM1638 switch support (#2226)
+ * Add support for APDS9960 proximity sensor (#3051)
+ * Add heap and stack debug information
+ * Add debug facilities using optional xdrv_99_debug.ino to enable in user_config.h
+ * Remove not needed functionality from Sonoff-minimal to save space
+ *
+ * 6.1.0 20180706
+ * Remove version 3, 4 and pre 5.2 settings auto-upgrade. See https://github.com/arendst/Sonoff-Tasmota/wiki/Upgrade#migration-path
+ * Change default CFG_HOLDER from 0x20161209 to 4617 (=0x1209) - no impact on default upgrades
+ * Change number of supported switches from 4 to 8 (#2885, #3086)
+ * Change BME680 driver from Adafruit to Bosch BME680 library (#2969)
+ * Fix Pzem004T checksum error
+ * Fix KNX bug when doing reply of sensors values
+ * Fix rules induced LWT message
+ * Fix possible wifi connection problem (#1366)
+ * Fix some Pow R2 and S31 checksum errors (#1907)
+ * Fix display selection of un-available GPIO options in Module Configuration webpage (#2718)
+ * Fix timer re-trigger within one minute after restart (#2744)
+ * Fix IRSend not accepting data value of 0 by David Conran (#2751)
+ * Fix vars on rules by Adrian Scillato (#2769)
+ * Fix bug in KNX menu by Adrian Scillato (#2770)
+ * Fix anomalies in rules (#2778)
+ * Fix HUE bridge V1 software version by Heiko Krupp (#2788)
+ * Fix Hardware Watchdog restart when using event command (#2853)
+ * Add Ukrainian language file
+ * Add KNX support for DS18S20 Temperature sensor
+ * Add CRC to Settings making future upgrades more fail-safe
+ * Add feature information to Status 4
+ * Add tools folder with python script decode-status.py for decoding some status fields like SetOption and Features
+ * Add Slots on the KNX Web Menu to select Group Addess to receive data to trigger rules
+ * Add two rule sets of 511 characters using commands rule1, rule2 and rule3
+ * Add Console Commands to send KNX Commands and KNX Values
+ * Add Slots on the KNX Web Menu to select Group Addess to send data from console commands
+ * Add Events to trigger rules when a command or read requests is received from KNX
+ * Add command SetOption30 to enforce Hass discovery as light group (#1784)
+ * Add support for BlitzWolf BW-SHP2 (and Homecube, Gosund SP1) Energy Monitoring Smart Socket (#2223)
+ * Add time in minutes to rule Time#Initialized, Time#set and Time#Minute (#2669)
+ * Add Eastron SDM630 energy meter by Gennaro Tortone (#2735)
+ * Add KNX communication enhancement by Adrian Scillato (#2742)
+ * Add KNX energy data by Adrian Scillato (#2750)
+ * Add rule support for IrReceive and RfReceive (#2758)
+ * Add python script fw-server.py in tools folder to create a simple OTA server by Gennaro Tortone (#2759)
+ * Add rule variables %time% for minutes since midnight, %uptime%, %sunrise% and %sunset% giving time in minutes (#2669)
+ * Add rules %mem1% to %mem5% variable names storing data in flash (#2780)
+ * Add rules test on %varx% or %memx% (#2780)
+ * Add optional token %id% substituting the unique MAC address to fulltopic by Michael Graf (#2794)
+ * Add support for Sonoff S26 Smart Socket (#2808)
+ * Add command WebSend [<host>(:<port>,<user>:<password>)] <command> (#2821)
+ * Add increment and decrement value to command Counter (#2838)
+ * Add support for Sonoff iFan02 as module 44 introducing command FanSpeed 0..3 (#2839)
+ * Add source information to command execution to be shown with logging option 3 (#2843)
+ * Add support for uploading Sonoff Bridge firmware found in tools/fw_efm8bb1 folder build by Portisch using Web Gui File Upload (#2886)
+ * Add command RfRaw to control Portisch firmware features
+ * Add support for I2C temperature sensor LM75AD (#2909)
+ * Add option 0 to command Timers disarming all timers (#2962)
+ * Add performance improvement when updating multiple individual WS2812 pixels (#3007)
+ * Add command SetOption28 to switch between hex or decimal Sonoff Bridge RF received data format (#3008)
+ * Add command SetOption29 to switch between hex or decimal IR received data format
+ * Add decimal values support for commands ADD, SUB, MULT and SCALE (#3083, #3089)
+ * Add support for bitflags SetOption50 .. SetOption81 (#3118)
+ *
+ * 5.14.0 20180515
+ * Update language files
+ * Update TasmotaSerial to 2.0.0 allowing Hardware Serial Fallback when correct connections are configured
+ * Change command handling
+ * Change user_config(_override).h defines TIME_STD and TIME_DST
+ * Change user_config(_override).h otaurl to http://sonoff.maddox.co.uk/tasmota/sonoff.bin (#2588, #2602)
+ * Fix configuration restore regression from 5.13.1
+ * Fix compile error when ADC is enabled and Rules are disabled (#2608)
+ * Fix rule power trigger when no backlog command is used (#2613)
+ * Fix several timer data input and output errors (#2597, #2620)
+ * Fix KNX config error (#2628)
+ * Fix sensor MHZ-19 vanishing data over time (#2659)
+ * Fix KNX reconnection issue (#2679)
+ * Fix DST and STD time for Southern Hemisphere by Adrian Scillato (#2684, #2714)
+ * Add Portuguese in Brazil language file
+ * Add SetOption26 to enforce use of indexes even when only one relay is present (#1055)
+ * Add support for sensor SI1145 UV Index / IR / Visible light (#2496)
+ * Add rule state test for On/Off in addition to 0/1 (#2613)
+ * Add hardware serial option to MHZ-19 sensor (#2659)
+ * Add Eastron SDM120 energy meter by Gennaro Tortone (#2694)
+ * Add user entry DST/STD using commands TimeStd and TimeDst (See wiki for parameter syntax) (#2721)
+ *
+ * 5.13.1 20180501
  * Fix JSON buffers size too small for execution in some situations (#2580)
  * Fix configuration restore (#2591)
  * Add define MODULE for user selecting default model although it preferably should not be changed (#569, #2589)
