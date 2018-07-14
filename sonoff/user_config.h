@@ -44,11 +44,7 @@
 \*********************************************************************************************/
 
 // -- Master parameter control --------------------
-<<<<<<< HEAD
 #define CFG_HOLDER             0x20161209        // [Reset 1] Change this value to load SECTION1 configuration parameters to flash
-=======
-#define CFG_HOLDER             4617              // [Reset 1] Change this value (max 32000) to load SECTION1 configuration parameters to flash
->>>>>>> upstream/development
 
 // -- Project -------------------------------------
 #define PROJECT                "sonoff"          // PROJECT is used as the default topic delimiter
@@ -279,33 +275,21 @@
   #define USE_BH1750                             // Add I2C code for BH1750 sensor (+0k5 code)
 //  #define USE_VEML6070                           // Add I2C code for VEML6070 sensor (+0k5 code)
 //  #define USE_TSL2561                            // Add I2C code for TSL2561 sensor using library Joba_Tsl2561 (+2k3 code)
-<<<<<<< HEAD
-=======
+
 //  #define USE_SI1145                             // Add I2C code for SI1145/46/47 sensor (+1k code)
->>>>>>> upstream/development
 //  #define USE_ADS1115                            // Add I2C code for ADS1115 16 bit A/D converter based on Adafruit ADS1x15 library (no library needed) (+0k7 code)
 //  #define USE_ADS1115_I2CDEV                     // Add I2C code for ADS1115 16 bit A/D converter using library i2cdevlib-Core and i2cdevlib-ADS1115 (+2k code)
 //  #define USE_INA219                             // Add I2C code for INA219 Low voltage and current sensor (+1k code)
 //  #define USE_MGS                                // Add I2C code for Xadow and Grove Mutichannel Gas sensor using library Multichannel_Gas_Sensor (+10k code)
     #define MGS_SENSOR_ADDR    0x04              // Default Mutichannel Gas sensor i2c address
-<<<<<<< HEAD
-=======
-//  #define USE_APDS9960                           // Add I2C code for APDS9960 Proximity Sensor. Disables SHT and VEML6070 (+4k7 code)
->>>>>>> upstream/development
 #endif  // USE_I2C
 
 // -- SPI sensors ---------------------------------
 //#define USE_SPI                                  // SPI using default library
 #ifdef USE_SPI
-<<<<<<< HEAD
 
 #endif  // USE_SPI
 
-=======
-
-#endif  // USE_SPI
-
->>>>>>> upstream/development
 // -- Serial sensors ------------------------------
 #define USE_MHZ19                                // Add support for MH-Z19 CO2 sensor (+2k code)
 #define USE_SENSEAIR                             // Add support for SenseAir K30, K70 and S8 CO2 sensor (+2k3 code)
@@ -315,13 +299,6 @@
 #define USE_NOVA_SDS                             // Add support for SDS011 and SDS021 particle concentration sensor (+0k7 code)
 #define USE_PZEM004T                             // Add support for PZEM004T Energy monitor (+2k code)
 #define USE_SERIAL_BRIDGE                        // Add support for software Serial Bridge (+0k8 code)
-<<<<<<< HEAD
-=======
-#define USE_SDM120                               // Add support for Eastron SDM120-Modbus energy meter (+1k7 code)
-  #define SDM120_SPEED         9600              // SDM120-Modbus RS485 serial speed (default: 2400 baud)
-#define USE_SDM630                               // Add support for Eastron SDM630-Modbus energy meter (+2k code)
-  #define SDM630_SPEED         9600              // SDM630-Modbus RS485 serial speed (default: 9600 baud)
->>>>>>> upstream/development
 
 // -- Low level interface devices -----------------
 #define USE_IR_REMOTE                            // Send IR remote commands using library IRremoteESP8266 and ArduinoJson (+4k code, 0k3 mem, 48 iram)
@@ -336,28 +313,11 @@
 
 #define USE_SR04                                 // Add support for HC-SR04 ultrasonic devices (+1k code)
 
-<<<<<<< HEAD
-=======
-//#define USE_TM1638                               // Add support for TM1638 switches copying Switch1 .. Switch8 (+1k code)
-
-#define USE_RF_FLASH                             // Add support for flashing the EFM8BB1 chip on the Sonoff RF Bridge. C2CK must be connected to GPIO4, C2D to GPIO5 on the PCB (+3k code)
-
-/*********************************************************************************************\
- * Debug features are only supported in development branch
-\*********************************************************************************************/
-
-//#define USE_DEBUG_DRIVER                         // Use xdrv_99_debug.ino providing commands CpuChk, CfgXor, CfgDump, CfgPeek and CfgPoke
-
->>>>>>> upstream/development
 /*********************************************************************************************\
  * Select features and sensors enabled in previous version saving space
 \*********************************************************************************************/
 
-<<<<<<< HEAD
 //#define USE_CLASSIC                             // Create sonoff-classic (See sonoff_post.h for selected features)
-=======
-//#define USE_CLASSIC                              // Create sonoff-classic (See sonoff_post.h for selected features)
->>>>>>> upstream/development
 
 /*********************************************************************************************\
  * Select all sensors - overrides above undefines!!
