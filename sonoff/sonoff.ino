@@ -25,7 +25,7 @@
     - Select IDE Tools - Flash Size: "1M (no SPIFFS)"
   ====================================================*/
 
-#define VERSION                0x06010001   // 6.1.0a
+#define VERSION                0x06010101   // 6.1.1a
 
 // Location specific includes
 #include <core_version.h>                   // Arduino_Esp8266 version information (ARDUINO_ESP8266_RELEASE and ARDUINO_ESP8266_RELEASE_2_3_0)
@@ -75,12 +75,6 @@
 // Structs
 #include "settings.h"
 
-#ifdef BE_MINIMAL
-enum TasmotaCommands {
-  CMND_POWER, CMND_FANSPEED, CMND_STATUS, CMND_STATE, CMND_SLEEP, CMND_UPGRADE, CMND_UPLOAD, CMND_OTAURL, CMND_SERIALLOG, CMND_RESTART };
-const char kTasmotaCommands[] PROGMEM =
-  D_CMND_POWER "|" D_CMND_FANSPEED "|" D_CMND_STATUS "|" D_CMND_STATE "|" D_CMND_SLEEP "|" D_CMND_UPGRADE "|" D_CMND_UPLOAD "|" D_CMND_OTAURL "|" D_CMND_SERIALLOG "|" D_CMND_RESTART;
-#else
 enum TasmotaCommands {
 <<<<<<< HEAD
   CMND_BACKLOG, CMND_DELAY, CMND_POWER, CMND_STATUS, CMND_STATE, CMND_POWERONSTATE, CMND_PULSETIME,
@@ -124,7 +118,6 @@ const char kOptionBlinkOff[] PROGMEM = "BLINKOFF|" D_BLINKOFF ;
   D_CMND_WIFICONFIG "|" D_CMND_FRIENDLYNAME "|" D_CMND_SWITCHMODE "|"
   D_CMND_TELEPERIOD "|" D_CMND_RESTART "|" D_CMND_RESET "|" D_CMND_TIMEZONE "|" D_CMND_TIMESTD "|" D_CMND_TIMEDST "|" D_CMND_ALTITUDE "|" D_CMND_LEDPOWER "|" D_CMND_LEDSTATE "|"
   D_CMND_I2CSCAN "|" D_CMND_SERIALSEND "|" D_CMND_BAUDRATE "|" D_CMND_SERIALDELIMITER;
-#endif
 
 const uint8_t kIFan02Speed[4][3] = {{6,6,6}, {7,6,6}, {7,7,6}, {7,6,7}};
 >>>>>>> upstream/development
@@ -533,7 +526,6 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
         type = NULL;  // Unknown command
       }
     }
-#ifndef BE_MINIMAL
     else if (CMND_BACKLOG == command_code) {
       if (data_len) {
         uint8_t bl_pointer = (!backlog_pointer) ? MAX_BACKLOG -1 : backlog_pointer;
@@ -576,7 +568,6 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
       if ((payload >= MIN_BACKLOG_DELAY) && (payload <= 3600)) backlog_delay = payload;
       snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_NVALUE, command, backlog_delay);
     }
-#endif  // Not BE_MINIMAL
     else if ((CMND_POWER == command_code) && (index > 0) && (index <= devices_present)) {
       if ((payload < 0) || (payload > 4)) payload = 9;
 <<<<<<< HEAD
@@ -660,7 +651,10 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
         snprintf_P(mqtt_data, sizeof(mqtt_data), S_JSON_COMMAND_SVALUE, command, D_JSON_ONE_TO_RESTART);
       }
     }
+<<<<<<< HEAD
 #ifndef BE_MINIMAL
+>>>>>>> upstream/development
+=======
 >>>>>>> upstream/development
     else if ((CMND_POWERONSTATE == command_code) && (Settings.module != MOTOR)) {
       /* 0 = Keep relays off after power on
@@ -1405,6 +1399,7 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
     }
 #endif  // USE_I2C
 <<<<<<< HEAD
+<<<<<<< HEAD
     else if (XdrvCommand(grpflg, type, index, dataBuf, data_len, payload, payload16)) {
       // Serviced
     }
@@ -1413,6 +1408,8 @@ void MqttDataHandler(char* topic, byte* data, unsigned int data_len)
     }
 =======
 #endif  // Not BE_MINIMAL
+=======
+>>>>>>> upstream/development
     else type = NULL;  // Unknown command
 >>>>>>> upstream/development
   }
