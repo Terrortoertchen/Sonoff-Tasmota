@@ -25,7 +25,15 @@
     - Select IDE Tools - Flash Size: "1M (no SPIFFS)"
   ====================================================*/
 
+<<<<<<< HEAD
 #define VERSION                0x06010001   // 6.1.0a
+=======
+<<<<<<< HEAD
+#define VERSION                0x050D0100   // 5.13.1
+=======
+#define VERSION                0x06010001   // 6.1.0a
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 
 // Location specific includes
 #include <core_version.h>                   // Arduino_Esp8266 version information (ARDUINO_ESP8266_RELEASE and ARDUINO_ESP8266_RELEASE_2_3_0)
@@ -42,8 +50,18 @@
 #include "lwip/init.h"
 #if LWIP_VERSION_MAJOR != 1
   #error Please use stable lwIP v1.4
+<<<<<<< HEAD
 #endif
 #endif
+=======
+<<<<<<< HEAD
+#endif
+#endif
+=======
+#endif
+#endif
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 
 // Libraries
 #include <Ticker.h>                         // RTC, Energy, OSWatch
@@ -218,9 +236,19 @@ uint8_t spi_flg = 0;                        // SPI configured
 uint8_t light_type = 0;                     // Light types
 bool pwm_present = false;                   // Any PWM channel configured with SetOption15 0
 boolean mdns_begun = false;
+<<<<<<< HEAD
 uint8_t ntp_force_sync = 0;                 // Force NTP sync
 StateBitfield global_state;
 RulesBitfield rules_flag;
+=======
+<<<<<<< HEAD
+unsigned long features = 0UL;
+=======
+uint8_t ntp_force_sync = 0;                 // Force NTP sync
+StateBitfield global_state;
+RulesBitfield rules_flag;
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 
 char my_version[33];                        // Composed version string
 char my_hostname[33];                       // Composed Wifi hostname
@@ -273,10 +301,23 @@ char* GetOtaUrl(char *otaurl, size_t otaurl_size)
 {
   if (strstr(Settings.ota_url, "%04d") != NULL) {     // OTA url contains placeholder for chip ID
     snprintf(otaurl, otaurl_size, Settings.ota_url, ESP.getChipId() & 0x1fff);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
   }
   else if (strstr(Settings.ota_url, "%d") != NULL) {  // OTA url contains placeholder for chip ID
     snprintf_P(otaurl, otaurl_size, Settings.ota_url, ESP.getChipId());
   }
+=======
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
+  }
+  else if (strstr(Settings.ota_url, "%d") != NULL) {  // OTA url contains placeholder for chip ID
+    snprintf_P(otaurl, otaurl_size, Settings.ota_url, ESP.getChipId());
+  }
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
   else {
     snprintf(otaurl, otaurl_size, Settings.ota_url);
   }

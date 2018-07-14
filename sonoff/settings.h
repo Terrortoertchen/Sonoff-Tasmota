@@ -48,6 +48,14 @@ typedef union {                            // Restricted by MISRA-C Rule 18.4 bu
     uint32_t not_power_linked : 1;         // bit 20 (v5.11.1f)
     uint32_t no_power_on_check : 1;        // bit 21 (v5.11.1i)
     uint32_t mqtt_serial : 1;              // bit 22 (v5.12.0f)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    uint32_t rules_enabled : 1;            // bit 23 (v5.12.0j)
+    uint32_t rules_once : 1;               // bit 24 (v5.12.0k)
+    uint32_t knx_enabled : 1;              // bit 25 (v5.12.0l) KNX
+=======
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
     uint32_t rules_enabled : 1;            // bit 23 (v5.12.0j) - free since v5.14.0b
     uint32_t rules_once : 1;               // bit 24 (v5.12.0k) - free since v5.14.0b
     uint32_t knx_enabled : 1;              // bit 25 (v5.12.0l) KNX
@@ -89,6 +97,10 @@ typedef union {                            // Restricted by MISRA-C Rule 18.4 bu
     uint32_t spare23 : 1;
     uint32_t spare24 : 1;
     uint32_t spare25 : 1;
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
     uint32_t spare26 : 1;
     uint32_t spare27 : 1;
     uint32_t spare28 : 1;
@@ -128,6 +140,11 @@ typedef union {
 } SysBitfield2;
 
 typedef union {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
   uint16_t data;
   struct {
     uint16_t hemis : 1;                    // bit 0        = 0=Northern, 1=Southern Hemisphere (=Opposite DST/STD)
@@ -139,6 +156,10 @@ typedef union {
 } TimeRule;
 
 typedef union {
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
   uint32_t data;
   struct {
     uint32_t time : 11;                    // bits 0 - 10 = minutes in a day
@@ -152,6 +173,11 @@ typedef union {
   };
 } Timer;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 typedef union {
   uint8_t data;
   struct {
@@ -167,6 +193,10 @@ typedef union {
 } Mcp230xxCfg;
 
 /*
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 struct SYSCFG {
   unsigned long cfg_holder;                // 000 Pre v6 header
   unsigned long save_flag;                 // 004

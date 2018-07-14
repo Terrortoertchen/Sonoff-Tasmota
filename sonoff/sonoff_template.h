@@ -97,6 +97,11 @@ enum UserSelectablePins {
   GPIO_SBR_RX,         // Serial Bridge Serial interface
   GPIO_SR04_TRIG,      // SR04 Trigger pin
   GPIO_SR04_ECHO,      // SR04 Echo pin
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
   GPIO_SDM120_TX,      // SDM120 Serial interface
   GPIO_SDM120_RX,      // SDM120 Serial interface
   GPIO_SDM630_TX,      // SDM630 Serial interface
@@ -104,6 +109,10 @@ enum UserSelectablePins {
   GPIO_TM16CLK,        // TM1638 Clock
   GPIO_TM16DIO,        // TM1638 Data I/O
   GPIO_TM16STB,        // TM1638 Strobe
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
   GPIO_SENSOR_END };
 
 // Programmer selectable GPIO functionality offset by user selectable GPIOs
@@ -131,7 +140,15 @@ const char kSensorNames[] PROGMEM =
   D_SENSOR_I2C_SCL "|" D_SENSOR_I2C_SDA "|"
   D_SENSOR_WS2812 "|"
   D_SENSOR_IRSEND "|"
+<<<<<<< HEAD
   D_SENSOR_SWITCH "1|" D_SENSOR_SWITCH "2|" D_SENSOR_SWITCH "3|" D_SENSOR_SWITCH "4|" D_SENSOR_SWITCH "5|" D_SENSOR_SWITCH "6|" D_SENSOR_SWITCH "7|" D_SENSOR_SWITCH "8|"
+=======
+<<<<<<< HEAD
+  D_SENSOR_SWITCH "1|" D_SENSOR_SWITCH "2|" D_SENSOR_SWITCH "3|" D_SENSOR_SWITCH "4|"
+=======
+  D_SENSOR_SWITCH "1|" D_SENSOR_SWITCH "2|" D_SENSOR_SWITCH "3|" D_SENSOR_SWITCH "4|" D_SENSOR_SWITCH "5|" D_SENSOR_SWITCH "6|" D_SENSOR_SWITCH "7|" D_SENSOR_SWITCH "8|"
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
   D_SENSOR_BUTTON "1|" D_SENSOR_BUTTON "2|" D_SENSOR_BUTTON "3|" D_SENSOR_BUTTON "4|"
   D_SENSOR_RELAY "1|" D_SENSOR_RELAY "2|" D_SENSOR_RELAY "3|" D_SENSOR_RELAY "4|" D_SENSOR_RELAY "5|" D_SENSOR_RELAY "6|" D_SENSOR_RELAY "7|" D_SENSOR_RELAY "8|"
   D_SENSOR_RELAY "1i|" D_SENSOR_RELAY "2i|" D_SENSOR_RELAY "3i|" D_SENSOR_RELAY "4i|" D_SENSOR_RELAY "5i|" D_SENSOR_RELAY "6i|" D_SENSOR_RELAY "7i|" D_SENSOR_RELAY "8i|"
@@ -147,7 +164,18 @@ const char kSensorNames[] PROGMEM =
   D_SENSOR_SPI_CS "|" D_SENSOR_SPI_DC "|" D_SENSOR_BACKLIGHT "|"
   D_SENSOR_PMS5003 "|" D_SENSOR_SDS0X1 "|"
   D_SENSOR_SBR_TX "|" D_SENSOR_SBR_RX "|"
+<<<<<<< HEAD
   D_SENSOR_TM1638_CLK "|" D_SENSOR_TM1638_DIO "|" D_SENSOR_TM1638_STB;
+=======
+<<<<<<< HEAD
+  D_SENSOR_SR04_TRIG "|" D_SENSOR_SR04_ECHO;
+=======
+  D_SENSOR_SR04_TRIG "|" D_SENSOR_SR04_ECHO "|"
+  D_SENSOR_SDM120_TX "|" D_SENSOR_SDM120_RX "|"
+  D_SENSOR_SDM630_TX "|" D_SENSOR_SDM630_RX "|"
+  D_SENSOR_TM1638_CLK "|" D_SENSOR_TM1638_DIO "|" D_SENSOR_TM1638_STB;
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 
 /********************************************************************************************/
 
@@ -195,8 +223,16 @@ enum SupportedModules {
   SONOFF_S31,
   ZENGGE_ZF_WF017,
   SONOFF_POW_R2,
+<<<<<<< HEAD
   SONOFF_IFAN02,
   BLITZWOLF_BWSHP2,
+=======
+<<<<<<< HEAD
+=======
+  SONOFF_IFAN02,
+  BLITZWOLF_BWSHP2,
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
   MAXMODULE };
 
 /********************************************************************************************/
@@ -708,8 +744,17 @@ const mytmplt kModules[MAXMODULE] PROGMEM = {
      0, 0, 0, 0, 0, 0, // Flash connection
      0, 0, 0, 0, 0
   },
+<<<<<<< HEAD
   { "MagicHome",       // Magic Home (aka Flux-light) (ESP8266)
                        // https://www.aliexpress.com/item/Magic-Home-Mini-RGB-RGBW-Wifi-Controller-For-Led-Strip-Panel-light-Timing-Function-16million-colors/32686853650.html
+=======
+<<<<<<< HEAD
+  { "MagicHome",       // Magic Home (aka Flux-light) (ESP8266) - https://www.aliexpress.com/item/Magic-Home-Mini-RGB-RGBW-Wifi-Controller-For-Led-Strip-Panel-light-Timing-Function-16million-colors/32686853650.html
+=======
+  { "MagicHome",       // Magic Home (aka Flux-light) (ESP8266)
+                       // https://www.aliexpress.com/item/Magic-Home-Mini-RGB-RGBW-Wifi-Controller-For-Led-Strip-Panel-light-Timing-Function-16million-colors/32686853650.html
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
      0,
      GPIO_USER,        // GPIO01 Serial RXD and Optional sensor
      GPIO_LED1_INV,    // GPIO02 Blue onboard LED
@@ -822,8 +867,17 @@ const mytmplt kModules[MAXMODULE] PROGMEM = {
      GPIO_LED1_INV,    // GPIO13 Green Led (0 = On, 1 = Off)
      0, 0, 0, 0
   },
+<<<<<<< HEAD
   { "Zengge WF017",    // Zenggee ZJ-WF017-A (ESP12S))
                        // https://www.ebay.com/p/Smartphone-Android-IOS-WiFi-Music-Controller-for-RGB-5050-3528-LED-Strip-Light/534446632?_trksid=p2047675.l2644
+=======
+<<<<<<< HEAD
+  { "Zengge WF017",    // Zenggee ZJ-WF017-A (ESP12S)) - https://www.ebay.com/p/Smartphone-Android-IOS-WiFi-Music-Controller-for-RGB-5050-3528-LED-Strip-Light/534446632?_trksid=p2047675.l2644
+=======
+  { "Zengge WF017",    // Zenggee ZJ-WF017-A (ESP12S))
+                       // https://www.ebay.com/p/Smartphone-Android-IOS-WiFi-Music-Controller-for-RGB-5050-3528-LED-Strip-Light/534446632?_trksid=p2047675.l2644
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
      GPIO_KEY1,        // GPIO00 Optional Button
      0,
      GPIO_USER,        // GPIO02 Empty pad
@@ -846,6 +900,11 @@ const mytmplt kModules[MAXMODULE] PROGMEM = {
      GPIO_REL1,        // GPIO12 Red Led and Relay (0 = Off, 1 = On)
      GPIO_LED1_INV,    // GPIO13 Blue Led (0 = On, 1 = Off)
      0, 0, 0, 0
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
   },
   { "Sonoff iFan02",   // Sonoff iFan02 (ESP8285)
      GPIO_KEY1,        // GPIO00 WIFI_KEY0 Virtual button 1 as feedback from RC
@@ -880,6 +939,10 @@ const mytmplt kModules[MAXMODULE] PROGMEM = {
      GPIO_HLW_CF1,     // GPIO14 BL0937 or HJL-01 CF1 voltage / current
      GPIO_REL1,        // GPIO15 Relay (0 = Off, 1 = On)
      0, 0
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
   }
 };
 

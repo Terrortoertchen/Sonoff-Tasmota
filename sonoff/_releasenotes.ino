@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+/* 5.13.1 20180501
+=======
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 /* 6.1.0a
  * Add TM1638 switch support (#2226)
  * Fix invalid response using more than 4 switches and domoticz
@@ -95,6 +101,10 @@
  * Add user entry DST/STD using commands TimeStd and TimeDst (See wiki for parameter syntax) (#2721)
  *
  * 5.13.1 20180501
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
  * Fix JSON buffers size too small for execution in some situations (#2580)
  * Fix configuration restore (#2591)
  * Add define MODULE for user selecting default model although it preferably should not be changed (#569, #2589)

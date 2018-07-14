@@ -78,7 +78,15 @@
 #define WEB_LOG_LEVEL          LOG_LEVEL_INFO    // [WebLog] (LOG_LEVEL_NONE, LOG_LEVEL_ERROR, LOG_LEVEL_INFO, LOG_LEVEL_DEBUG, LOG_LEVEL_DEBUG_MORE)
 
 // -- Ota -----------------------------------------
+<<<<<<< HEAD
 #define OTA_URL                "http://sonoff.maddox.co.uk/tasmota/sonoff.bin"  // [OtaUrl]
+=======
+<<<<<<< HEAD
+#define OTA_URL                "http://sonoff.maddox.co.uk/tasmota/sonoff.ino.bin"  // [OtaUrl]
+=======
+#define OTA_URL                "http://sonoff.maddox.co.uk/tasmota/sonoff.bin"  // [OtaUrl]
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 
 // -- MQTT ----------------------------------------
 #define MQTT_USE               1                 // [SetOption3] Select default MQTT use (0 = Off, 1 = On)
@@ -133,6 +141,11 @@
 #define NTP_SERVER2            "nl.pool.ntp.org"    // [NtpServer2] Select second NTP server by name or IP address (5.39.184.5)
 #define NTP_SERVER3            "0.nl.pool.ntp.org"  // [NtpServer3] Select third NTP server by name or IP address (93.94.224.67)
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 // -- Time - Start Daylight Saving Time and timezone offset from UTC in minutes
 #define TIME_DST_HEMISPHERE    North              // [TimeDst] Hemisphere (0 or North, 1 or South)
 #define TIME_DST_WEEK          Last               // Week of month (0 or Last, 1 or First, 2 or Second, 3 or Third, 4 or Fourth)
@@ -149,6 +162,10 @@
 #define TIME_STD_HOUR          3                  // Hour (0 to 23)
 #define TIME_STD_OFFSET        +60                // Offset from UTC in minutes (-780 to +780)
 
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 // -- Location ------------------------------------
 #define LATITUDE               48.858360         // [Latitude] Your location to be used with sunrise and sunset
 #define LONGITUDE              2.294442          // [Longitude] Your location to be used with sunrise and sunset
@@ -182,7 +199,15 @@
  * - Disable a feature by preceding it with //
 \*********************************************************************************************/
 
+<<<<<<< HEAD
 //#define USE_ARDUINO_OTA                          // Add optional support for Arduino OTA (+13k code)
+=======
+<<<<<<< HEAD
+//#define USE_ARDUINO_OTA                          // Add optional support for Arduino OTA (+4k5 code)
+=======
+//#define USE_ARDUINO_OTA                          // Add optional support for Arduino OTA (+13k code)
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 
 // -- Localization --------------------------------
   // If non selected the default en-GB will be used
@@ -197,10 +222,22 @@
 //#define MY_LANGUAGE            it-IT           // Italian in Italy
 //#define MY_LANGUAGE            nl-NL           // Dutch in the Netherlands
 //#define MY_LANGUAGE            pl-PL           // Polish in Poland
+<<<<<<< HEAD
 //#define MY_LANGUAGE            pt-BR           // Portuguese in Brazil
 //#define MY_LANGUAGE            pt-PT           // Portuguese in Portugal
 //#define MY_LANGUAGE            ru-RU           // Russian in Russia
 //#define MY_LANGUAGE            uk-UK           // Ukrainian in Ukrain
+=======
+<<<<<<< HEAD
+//#define MY_LANGUAGE            pt-PT           // Portuguese in Portugal
+//#define MY_LANGUAGE            ru-RU           // Russian in Russia
+=======
+//#define MY_LANGUAGE            pt-BR           // Portuguese in Brazil
+//#define MY_LANGUAGE            pt-PT           // Portuguese in Portugal
+//#define MY_LANGUAGE            ru-RU           // Russian in Russia
+//#define MY_LANGUAGE            uk-UK           // Ukrainian in Ukrain
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 //#define MY_LANGUAGE            zh-CN           // Chinese (Simplified) in China
 //#define MY_LANGUAGE            zh-TW           // Chinese (Traditional) in Taiwan
 
@@ -215,13 +252,29 @@
 //#define MQTT_LIBRARY_TYPE      MQTT_ESPMQTTARDUINO // Use (patched) esp-mqtt-arduino library (+4k8 code, +4k mem) - non-TLS only
 
 // -- MQTT ----------------------------------------
+<<<<<<< HEAD
 #define MQTT_TELE_RETAIN     1                   // Tele messages may send retain flag (0 = off, 1 = on)
+=======
+#define MQTT_TELE_RETAIN     0                   // Tele messages may send retain flag (0 = off, 1 = on)
+<<<<<<< HEAD
 
 // -- MQTT - Domoticz -----------------------------
 #define USE_DOMOTICZ                             // Enable Domoticz (+6k code, +0.3k mem)
   #define DOMOTICZ_IN_TOPIC    "domoticz/in"     // Domoticz Input Topic
   #define DOMOTICZ_OUT_TOPIC   "domoticz/out"    // Domoticz Output Topic
 
+=======
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
+
+// -- MQTT - Domoticz -----------------------------
+#define USE_DOMOTICZ                             // Enable Domoticz (+6k code, +0.3k mem)
+  #define DOMOTICZ_IN_TOPIC    "domoticz/in"     // Domoticz Input Topic
+  #define DOMOTICZ_OUT_TOPIC   "domoticz/out"    // Domoticz Output Topic
+
+<<<<<<< HEAD
+=======
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 // -- MQTT - Home Assistant Discovery -------------
 #define USE_HOME_ASSISTANT                       // Enable Home Assistant Discovery Support (+2k code)
   #define HOME_ASSISTANT_DISCOVERY_PREFIX "homeassistant"  // Home Assistant discovery prefix
@@ -244,6 +297,18 @@
   #define WEBSERVER_ADVERTISE                    // Provide access to webserver by name <Hostname>.local/
   #define MQTT_HOST_DISCOVERY                    // Find MQTT host server (overrides MQTT_HOST if found)
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+// -- Time - Start Daylight Saving Time and timezone offset from UTC in minutes
+#define TIME_DST  North, Last, Sun, Mar, 2, +120  // Northern Hemisphere, Last sunday in march at 02:00 +120 minutes
+
+// -- Time - Start Standard Time and timezone offset from UTC in minutes
+#define TIME_STD  North, Last, Sun, Oct, 3, +60   // Northern Hemisphere, Last sunday in october 02:00 +60 minutes
+
+=======
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
 // -- Time ----------------------------------------
 #define USE_TIMERS                               // Add support for up to 16 timers (+2k2 code)
   #define USE_TIMERS_WEB                         // Add timer webpage support (+4k5 code)
@@ -269,7 +334,15 @@
   #define USE_HTU                                // Add I2C code for HTU21/SI7013/SI7020/SI7021 sensor (+1k5 code)
   #define USE_LM75AD                             // Add I2C code for LM75AD sensor (+0k5 code)
   #define USE_BMP                                // Add I2C code for BMP085/BMP180/BMP280/BME280 sensor (+4k code)
+<<<<<<< HEAD
 //    #define USE_BME680                           // Add additional support for BME680 sensor using Bosch BME680 library (+4k code)
+=======
+<<<<<<< HEAD
+//    #define USE_BME680                           // Add additional support for BME680 sensor using Adafruit Sensor and BME680 libraries (+6k code)
+=======
+//    #define USE_BME680                           // Add additional support for BME680 sensor using Bosch BME680 library (+4k code)
+>>>>>>> upstream/development
+>>>>>>> d0830d6ffa90cde455968db7fb682d2aa5c6d909
   #define USE_SGP30                              // Add I2C code for SGP30 sensor (+1k1 code)
   #define USE_BH1750                             // Add I2C code for BH1750 sensor (+0k5 code)
 //  #define USE_VEML6070                           // Add I2C code for VEML6070 sensor (+0k5 code)
