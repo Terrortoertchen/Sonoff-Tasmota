@@ -5,6 +5,7 @@ Alternative firmware for _ESP8266 based devices_ like [iTead](https://www.itead.
 [![GitHub version](https://img.shields.io/github/release/arendst/Sonoff-Tasmota.svg)](https://github.com/arendst/Sonoff-Tasmota/releases/latest)
 [![GitHub download](https://img.shields.io/github/downloads/arendst/Sonoff-Tasmota/total.svg)](https://github.com/arendst/Sonoff-Tasmota/releases/latest)
 <<<<<<< HEAD
+<<<<<<< HEAD
 [![License](https://img.shields.io/github/license/arendst/Sonoff-Tasmota.svg)](https://github.com/arendst/Sonoff-Tasmota/blob/master/LICENSE.txt)
 
 If you like **Sonoff-Tasmota**, give it a star, or fork it and contribute!
@@ -26,6 +27,9 @@ If you want to compile Sonoff-Tasmota yourself keep in mind the following:
 - To make compile time changes to Sonoff-Tasmota it can use the ``user_config_override.h`` file. It assures keeping your settings when you download and compile a new version. To use ``user_config.override.h`` you will have to make a copy of the provided ``user_config.override_sample.h`` file and add your setting overrides. To enable the override file you will need to use a compile define as documented in the ``user_config_override_sample.h`` file.
 =======
 [![License](https://img.shields.io/github/license/arendst/Sonoff-Tasmota.svg)](https://github.com/arendst/Sonoff-Tasmota/blob/development/LICENSE.txt)
+=======
+[![License](https://img.shields.io/github/license/arendst/Sonoff-Tasmota.svg)](https://github.com/arendst/Sonoff-Tasmota/blob/master/LICENSE.txt)
+>>>>>>> 66bf3ad3f2a6991543200a94ee67726b420e2c36
 
 If you like **Sonoff-Tasmota**, give it a star, or fork it and contribute!
 
@@ -33,10 +37,9 @@ If you like **Sonoff-Tasmota**, give it a star, or fork it and contribute!
 [![GitHub forks](https://img.shields.io/github/forks/arendst/Sonoff-Tasmota.svg?style=social&label=Fork)](https://github.com/arendst/Sonoff-Tasmota/network)
 [![donate](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://paypal.me/tasmota)
 
-### Development
-[![Build Status](https://img.shields.io/travis/arendst/Sonoff-Tasmota.svg)](https://travis-ci.org/arendst/Sonoff-Tasmota)
+See [RELEASENOTES.md](https://github.com/arendst/Sonoff-Tasmota/blob/master/RELEASENOTES.md) for release information.
 
-Current version is **6.1.0a** - See [sonoff/_releasenotes.ino](https://github.com/arendst/Sonoff-Tasmota/blob/development/sonoff/_releasenotes.ino) for change information.
+In addition to the [release webpage](https://github.com/arendst/Sonoff-Tasmota/releases/latest) the binaries can also be OTA downloaded from http://thehackbox.org/tasmota/release/
 
 ### Disclaimer
 :warning: **DANGER OF ELECTROCUTION** :warning:
@@ -73,10 +76,11 @@ See [wiki migration path](https://github.com/arendst/Sonoff-Tasmota/wiki/Upgrade
 <img src="https://github.com/arendst/arendst.github.io/blob/master/media/sonoffbasic.jpg" width="250" align="right" />
 
 See [Wiki](https://github.com/arendst/Sonoff-Tasmota/wiki) for more information.<br />
-See [Community](https://groups.google.com/d/forum/sonoffusers) for forum and more user experience.
+See [Community](https://groups.google.com/d/forum/sonoffusers) for forum.<br />
+See [Chat](https://discord.gg/Ks2Kzd4) for more user experience.
 
 The following devices are supported:
-- [iTead Sonoff Basic](https://www.itead.cc/smart-home/sonoff-wifi-wireless-switch-1.html)
+- [iTead Sonoff Basic (R2)](https://www.itead.cc/smart-home/sonoff-wifi-wireless-switch-1.html)
 - [iTead Sonoff RF](https://www.itead.cc/smart-home/sonoff-rf.html)
 - [iTead Sonoff SV](https://www.itead.cc/smart-home/sonoff-sv.html)<img src="https://github.com/arendst/arendst.github.io/blob/master/media/sonoff_th.jpg" width="250" align="right" />
 - [iTead Sonoff TH10/TH16 with temperature sensor](https://www.itead.cc/smart-home/sonoff-th.html)
@@ -112,8 +116,9 @@ The following devices are supported:
 - [MagicHome PWM LED controller](https://github.com/arendst/Sonoff-Tasmota/wiki/MagicHome-LED-strip-controller)
 - AriLux AL-LC01, AL-LC06 and AL-LC11 PWM LED controller
 - [Supla device - Espablo-inCan mod. for electrical Installation box](https://forum.supla.org/viewtopic.php?f=33&t=2188)
-- [BlitzWolf BW-SHP2 Smart Socket with Energy Monitoring](https://www.banggood.com/BlitzWolf-BW-SHP2-Smart-WIFI-Socket-EU-Plug-220V-16A-Work-with-Amazon-Alexa-Google-Assistant-p-1292899.html)
+- [BlitzWolf BW-SHP2 Smart Socket with Energy Monitoring](https://www.banggood.com/BlitzWolf-BW-SHP2-Smart-WIFI-Socket-EU-Plug-220V-16A-Work-with-Amazon-Alexa-Google-Assistant-p-1292899.html)<img src="https://github.com/arendst/arendst.github.io/blob/master/media/shelly2_small_250a.png" width="250" align="right" />
 - [Luani HVIO board](https://luani.de/projekte/esp8266-hvio/)
+<<<<<<< HEAD
 - Wemos D1 mini, NodeMcu and Ledunia
 
 <<<<<<< HEAD
@@ -238,6 +243,15 @@ See [Tasmota ESP/Arduino library version related issues](https://github.com/aren
 >>>>>>> upstream/development
 =======
 >>>>>>> 2058b9f... Updated to v6.1.0a
+=======
+- [Wemos D1 mini](https://wiki.wemos.cc/products:d1:d1_mini)
+- [HuaFan Smart Socket](https://github.com/arendst/Sonoff-Tasmota/wiki/HuaFan-Smart-Socket)
+- [Hyleton-313 Smart Plug](https://github.com/arendst/Sonoff-Tasmota/wiki/Hyleton-313-Smart-Plug)
+- [Allterco Shelly 1](https://shelly.cloud/shelly1-open-source/)
+- [Allterco Shelly 2 with Energy Monitoring](https://shelly.cloud/shelly2/)
+- NodeMcu and Ledunia
+- [KS-602 based switches like GresaTek, Jesiya, NewRice, Lyasi etc](https://ucexperiment.wordpress.com/2017/11/14/reprogramming-a-lyasi-wifi-wall-switch-with-esp8285/)
+>>>>>>> 66bf3ad3f2a6991543200a94ee67726b420e2c36
 
 ### Contribute
 You can contribute to Sonoff-Tasmota by
@@ -265,25 +279,35 @@ Libraries used with Sonoff-Tasmota are:
 #### Libraries Used
 Libraries used with Sonoff-Tasmota are:
 - [ESP8266 core for Arduino](https://github.com/esp8266/Arduino)
+- [Adafruit CCS811](https://github.com/adafruit/Adafruit_CCS811)
+- [Adafruit ILI9341](https://github.com/adafruit/Adafruit_ILI9341)
+- [Adafruit LED Backpack](https://github.com/adafruit/Adafruit-LED-Backpack-Library)
 - [Adafruit SGP30](https://github.com/adafruit/Adafruit_SGP30)
+- [Adafruit SSD1306](https://github.com/adafruit/Adafruit_SSD1306)
+- [Adafruit GFX](https://github.com/adafruit/Adafruit-GFX-Library)
 - [ArduinoJson](https://arduinojson.org/)
+- [arduino mqtt](https://github.com/256dpi/arduino-mqtt)
 - [Bosch BME680](https://github.com/BoschSensortec/BME680_driver)
 - [C2 Programmer](http://app.cear.ufpb.br/~lucas.hartmann/tag/efm8bb1/)
-- [Esp8266MqttClient](https://github.com/tuanpmt/ESP8266MQTTClient)
 - [esp-knx-ip](https://github.com/envy/esp-knx-ip)
+<<<<<<< HEAD
 - [esp-mqtt-arduino](https://github.com/i-n-g-o/esp-mqtt-arduino)
 - [ESPAsyncUDP](https://github.com/me-no-dev/ESPAsyncUDP)
 >>>>>>> upstream/development
 =======
 - [ESPAsyncUDP](https://github.com/me-no-dev/ESPAsyncUDP)
 >>>>>>> 2058b9f... Updated to v6.1.0a
+=======
+>>>>>>> 66bf3ad3f2a6991543200a94ee67726b420e2c36
 - [I2Cdevlib](https://github.com/jrowberg/i2cdevlib)
 - [IRremoteEsp8266](https://github.com/markszabo/IRremoteESP8266)
 - [JobaTsl2561](https://github.com/joba-1/Joba_Tsl2561)
+- [Liquid Cristal](https://github.com/marcoschwartz/LiquidCrystal_I2C)
 - [MultiChannelGasSensor](http://wiki.seeedstudio.com/Grove-Multichannel_Gas_Sensor/)
 - [NeoPixelBus](https://github.com/Makuna/NeoPixelBus)
 - [OneWire](https://github.com/PaulStoffregen/OneWire)
 - [PubSubClient](https://github.com/knolleary/pubsubclient)
+- [rc-switch](https://github.com/sui77/rc-switch)
 
 #### People inspiring me
 People helping to keep the show on the road:
@@ -301,11 +325,11 @@ People helping to keep the show on the road:
 - reloxx13 for his [TasmoAdmin](https://github.com/reloxx13/TasmoAdmin) management tool
 >>>>>>> upstream/development
 - Joachim Banzhaf for his TSL2561 library and driver
-- Gijs Noorlander for his MHZ19 and SenseAir drivers
+- Gijs Noorlander for his MHZ19, SenseAir and updated PubSubClient drivers
 - Emontnemery for his HomeAssistant Discovery concept and many code tuning tips
 - Aidan Mountford for his HSB support
 - Daniel Ztolnai for his Serial Bridge implementation
-- Gerhard Mutz for his SGP30 and Sunrise/Sunset driver
+- Gerhard Mutz for his SGP30, Sunrise/Sunset and display support drivers
 - Nuno Ferreira for his HC-SR04 driver
 - Adrian Scillato for his (security)fixes and implementing and maintaining KNX
 <<<<<<< HEAD
@@ -313,7 +337,10 @@ People helping to keep the show on the road:
 - Gennaro Tortone for implementing and maintaining Eastron drivers
 >>>>>>> upstream/development
 - Raymond Mouthaan for managing Wemos Wiki information
-- Norbert Richter, Frogmore42 and Jason2866 for providing many issue answers
+- Norbert Richter for his decode-config.py tool
+- Andre Thomas for providing [thehackbox](http://thehackbox.org/tasmota/) OTA support and daily development builds
+- Joel Stein and digiblur for their Tuya research and driver
+- Frogmore42 and Jason2866 for providing many issue answers
 - Many more providing Tips, Pocs or PRs
 
 ### License

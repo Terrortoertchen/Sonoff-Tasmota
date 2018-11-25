@@ -188,6 +188,8 @@ boolean HtuRead()
   return humidity;
 =======
 
+  SetGlobalValues(htu_temperature, htu_humidity);
+
   htu_valid = SENSOR_MAX_MISS;
   return true;
 >>>>>>> upstream/development

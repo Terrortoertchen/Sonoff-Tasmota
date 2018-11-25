@@ -275,8 +275,15 @@ void MhzEverySecond()
 
 /*********************************************************************************************\
  * Command Sensor15
+ *
+ * 0 - (Not implemented) ABC Off
+ * 1 - (Not implemented) ABC On
+ * 2 - Manual start = ABC Off
+ * 3 - (Not implemented) Optional filter settings
+ * 9 - Reset
 \*********************************************************************************************/
 
+<<<<<<< HEAD
 /*
   0 - ABC Off
   1 - ABC On
@@ -290,6 +297,8 @@ void MhzEverySecond()
 >>>>>>> upstream/development
 */
 
+=======
+>>>>>>> 66bf3ad3f2a6991543200a94ee67726b420e2c36
 bool MhzCommandSensor()
 {
   boolean serviced = true;

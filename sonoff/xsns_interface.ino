@@ -180,7 +180,50 @@ boolean (* const xsns_func_ptr[])(byte) PROGMEM = {  // Sensor Function Pointers
   &Xsns40,
 #endif
 
+<<<<<<< HEAD
 >>>>>>> upstream/development
+=======
+#ifdef XSNS_41
+  &Xsns41,
+#endif
+
+#ifdef XSNS_42
+  &Xsns42,
+#endif
+
+#ifdef XSNS_43
+  &Xsns43,
+#endif
+
+#ifdef XSNS_44
+  &Xsns44,
+#endif
+
+#ifdef XSNS_45
+  &Xsns45,
+#endif
+
+#ifdef XSNS_46
+  &Xsns46,
+#endif
+
+#ifdef XSNS_47
+  &Xsns47,
+#endif
+
+#ifdef XSNS_48
+  &Xsns48,
+#endif
+
+#ifdef XSNS_49
+  &Xsns49,
+#endif
+
+#ifdef XSNS_50
+  &Xsns50,
+#endif
+
+>>>>>>> 66bf3ad3f2a6991543200a94ee67726b420e2c36
 // Optional user defined sensors in range 91 - 99
 
 #ifdef XSNS_91
@@ -232,8 +275,10 @@ uint8_t xsns_index = 0;
  * FUNC_JSON_APPEND
  * FUNC_WEB_APPEND
  * return FUNC_COMMAND
- * FUNC_EVERY_SECOND
  * FUNC_EVERY_50_MSECOND
+ * FUNC_EVERY_100_MSECOND
+ * FUNC_EVERY_250_MSECOND
+ * FUNC_EVERY_SECOND
 \*********************************************************************************************/
 
 uint8_t XsnsPresent()
